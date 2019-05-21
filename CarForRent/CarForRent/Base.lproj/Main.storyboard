@@ -123,7 +123,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="236.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Explore-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="b41-vw-oqL">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Explore-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="b41-vw-oqL">
                                             <rect key="frame" x="26" y="21" width="323" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="u1O-NM-IJK"/>

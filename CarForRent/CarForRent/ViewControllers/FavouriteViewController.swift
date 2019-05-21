@@ -22,6 +22,8 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
         super.viewDidLoad()
         tableData = [car1,car2,car3]
         myLoadView()
+        tableView.estimatedRowHeight = 2250
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func myLoadView() {
@@ -81,12 +83,15 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CarDetailCell
         
         // Configure the cell...
-        
+        cell.carNameLabel.text = "Name:"+String(tableData[indexPath.row].name)+"  "+"Brand:"+String(tableData[indexPath.row].brand)+"\n"+"Location"+String(tableData[indexPath.row].location)+"\n"+"Price:"+String(tableData[indexPath.row].price)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CarDetailCell
+//        return 10 + cell.carImage.frame.height + 15 + cell.carNameLabel.frame
+//        .height + 10
+        return 250
     }
 
 }
