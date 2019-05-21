@@ -20,13 +20,13 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         hideKeyboardWhenTappedAround()
         
     }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if let resultView = searchResultView  {
             resultView.isHidden = false
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let resultsTableController = storyboard.instantiateViewController(withIdentifier: "SearchResultTableViewController") as! SearchResultTableViewController
+            let resultsTableController = storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
             resultsTableController.myLoadView()
             //        searchBar = resultsTableController.searchController.searchBar
             searchResultView = resultsTableController.view

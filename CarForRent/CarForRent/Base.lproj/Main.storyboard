@@ -110,7 +110,7 @@
         <!--Item-->
         <scene sceneID="tSd-Gb-9IX">
             <objects>
-                <tableViewController id="TcF-CC-zvi" sceneMemberID="viewController">
+                <tableViewController id="TcF-CC-zvi" customClass="FavouriteViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DAU-4M-BYp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
