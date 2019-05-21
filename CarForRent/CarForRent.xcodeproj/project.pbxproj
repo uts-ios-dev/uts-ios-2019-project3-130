@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
+		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
 		E0D7878722926E6B00658EE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878522926E6B00658EE9 /* Main.storyboard */; };
 		E0D7878922926E6C00658EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878822926E6C00658EE9 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
+		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D7877F22926E6B00658EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D7878622926E6B00658EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44ED678A22938A6F002AF03A /* CustomTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				44ED678B22938AB9002AF03A /* CarDetailCell.swift */,
+			);
+			path = CustomTableViewCells;
+			sourceTree = "<group>";
+		};
+		44ED678D22938EFF002AF03A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				44ED678E22938F15002AF03A /* Car.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E0D7877322926E6B00658EE9 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,8 @@
 		E0D7877E22926E6B00658EE9 /* CarForRent */ = {
 			isa = PBXGroup;
 			children = (
+				44ED678D22938EFF002AF03A /* Models */,
+				44ED678A22938A6F002AF03A /* CustomTableViewCells */,
 				E0F70708229379D00031F718 /* Helpers */,
 				E0D787992292776A00658EE9 /* ViewControllers */,
 				E0D7877F22926E6B00658EE9 /* AppDelegate.swift */,
@@ -171,8 +193,10 @@
 			files = (
 				E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
+				44ED678F22938F15002AF03A /* Car.swift in Sources */,
 				E0D787A02292781300658EE9 /* FavouriteViewController.swift in Sources */,
 				E0D787A32292781300658EE9 /* ExploreViewController.swift in Sources */,
+				44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */,
 				E0D787A22292781300658EE9 /* MainTabBarController.swift in Sources */,
 				E0D787A12292781300658EE9 /* ProfileViewController.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
