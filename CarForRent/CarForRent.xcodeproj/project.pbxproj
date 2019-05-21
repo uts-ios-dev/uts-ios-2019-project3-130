@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9927432293B086007E187A /* HorizontalScrollBar.swift */; };
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE9927432293B086007E187A /* HorizontalScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBar.swift; sourceTree = "<group>"; };
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
+				DE9927432293B086007E187A /* HorizontalScrollBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
+				DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */,
 				44ED678F22938F15002AF03A /* Car.swift in Sources */,
 				E0D787A02292781300658EE9 /* FavouriteViewController.swift in Sources */,
 				E0D787A32292781300658EE9 /* ExploreViewController.swift in Sources */,

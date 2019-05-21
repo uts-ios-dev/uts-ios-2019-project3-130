@@ -8,12 +8,33 @@
 
 import UIKit
 
-class OrderViewController: UIViewController {
-
+class OrderViewController: UIViewController, HorizontalScrollDelegate {
+    
+    @IBOutlet weak var scrollView: HorizontalScroll!
+    
+    var imageNames = ["Explore-Icon", "Favourite-Icon", "Profile-Icon", "Order-Icon"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        populateData()
+        print(scrollView.frame)
+        
+    }
+    
+    func populateData() {
+        print("populateData populateData")
+        scrollView.myDelegate = self
+        scrollView.reload()
+    }
+    
+    func numberOfScrollViewElements() -> Int {
+        return imageNames.count
+    }
+    
+    func elementAtScrollViewIndex(index: Int) -> UIImageView {
+        let myImageView = UIImageView(image: UIImage.init(named: imageNames[index]))
+        return myImageView
     }
     
 
