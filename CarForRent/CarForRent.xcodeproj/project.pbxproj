@@ -17,6 +17,7 @@
 		E0D787A22292781300658EE9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7879D2292781300658EE9 /* MainTabBarController.swift */; };
 		E0D787A32292781300658EE9 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7879E2292781300658EE9 /* ExploreViewController.swift */; };
 		E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D787A422927DBD00658EE9 /* SearchResultTableViewController.swift */; };
+		E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F70709229379EF0031F718 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E0D7879D2292781300658EE9 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E0D7879E2292781300658EE9 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E0D787A422927DBD00658EE9 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		E0F70709229379EF0031F718 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		E0D7877E22926E6B00658EE9 /* CarForRent */ = {
 			isa = PBXGroup;
 			children = (
+				E0F70708229379D00031F718 /* Helpers */,
 				E0D787992292776A00658EE9 /* ViewControllers */,
 				E0D7877F22926E6B00658EE9 /* AppDelegate.swift */,
 				E0D7878522926E6B00658EE9 /* Main.storyboard */,
@@ -85,6 +88,14 @@
 				E0D787A422927DBD00658EE9 /* SearchResultTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E0F70708229379D00031F718 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
 				E0D787A02292781300658EE9 /* FavouriteViewController.swift in Sources */,
 				E0D787A32292781300658EE9 /* ExploreViewController.swift in Sources */,
