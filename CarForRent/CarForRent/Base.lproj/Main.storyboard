@@ -148,6 +148,7 @@
                                 <connections>
                                     <outlet property="carImage" destination="b41-vw-oqL" id="Ewg-be-glL"/>
                                     <outlet property="carNameLabel" destination="S6k-6t-fYk" id="Saa-0F-0f5"/>
+                                    <segue destination="YUv-Vh-GMb" kind="show" id="qfI-gQ-Svx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -161,6 +162,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="For-Oj-Dad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-332" y="757.87106446776613"/>
+        </scene>
+        <!--Car Details View Controller-->
+        <scene sceneID="8fY-v0-D85">
+            <objects>
+                <viewController id="YUv-Vh-GMb" customClass="CarDetailsViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r21-0O-jv2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-35-bAh">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkG-fB-CXA" customClass="HorizontalScroll" customModule="CarForRent" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PkG-fB-CXA" firstAttribute="leading" secondItem="Rpi-35-bAh" secondAttribute="leading" id="IoL-6r-Dds"/>
+                                    <constraint firstItem="PkG-fB-CXA" firstAttribute="top" secondItem="Rpi-35-bAh" secondAttribute="top" id="UaR-21-AUo"/>
+                                    <constraint firstAttribute="bottom" secondItem="PkG-fB-CXA" secondAttribute="bottom" id="sKh-dc-KwY"/>
+                                    <constraint firstAttribute="trailing" secondItem="PkG-fB-CXA" secondAttribute="trailing" id="xQv-Ci-kOI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rpi-35-bAh" firstAttribute="leading" secondItem="zxx-QC-urq" secondAttribute="leading" id="M0T-0r-1Hy"/>
+                            <constraint firstItem="Rpi-35-bAh" firstAttribute="top" secondItem="zxx-QC-urq" secondAttribute="top" id="Y8R-A2-hLf"/>
+                            <constraint firstItem="zxx-QC-urq" firstAttribute="trailing" secondItem="Rpi-35-bAh" secondAttribute="trailing" id="efT-JG-Tah"/>
+                            <constraint firstItem="Rpi-35-bAh" firstAttribute="height" secondItem="r21-0O-jv2" secondAttribute="height" multiplier="3:10" id="yh5-RK-Xhr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zxx-QC-urq"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageScrollView" destination="PkG-fB-CXA" id="zFB-9U-np6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lK9-w5-OIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="1491"/>
         </scene>
         <!--Order-->
         <scene sceneID="IUc-ih-3RE">
