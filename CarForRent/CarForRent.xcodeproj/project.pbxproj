@@ -14,6 +14,7 @@
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
 		DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9927432293B086007E187A /* HorizontalScrollBar.swift */; };
+		E074FA6322966DCE008D68AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074FA6222966DCE008D68AF /* User.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
 		E0D7878722926E6B00658EE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878522926E6B00658EE9 /* Main.storyboard */; };
 		E0D7878922926E6C00658EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878822926E6C00658EE9 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DE9927432293B086007E187A /* HorizontalScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBar.swift; sourceTree = "<group>"; };
+		E074FA6222966DCE008D68AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D7877F22926E6B00658EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D7878622926E6B00658EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				44ED678E22938F15002AF03A /* Car.swift */,
+				E074FA6222966DCE008D68AF /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,7 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				422ADEAD229674CB0010E5CB /* LoginViewController.swift in Sources */,
+=======
+				E074FA6322966DCE008D68AF /* User.swift in Sources */,
+>>>>>>> 71bd5fce776353d95b594da33a5722a6ba697ac4
 				E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
 				DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */,
