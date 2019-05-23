@@ -10,9 +10,9 @@ import UIKit
 
 class FavouriteViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     var carPictures = CarDetailCell()
-    let car1 = Car(name:"Swift",brand:"Suzuki",price:50,location:"58 Bay street, Ultimo, Sydney", carImages : ["large","Suzuki-Swift-side","Suzuki-Swift-back","Suzuki-Swift-inside"])
-    let car2 = Car(name:"CX-5 SUV",brand:"Mazda",price:75,location:"101 Water street, Rockdale, Sydney" , carImages : ["MazdaCX-5","Mada-CX5-side","Mazda-CX5-back","Mazda-CX5-inside"])
-    let car3 = Car(name:"Q50 Sedan",brand:"Infiniti",price:150,location:"50 Rich street, Wolli Creek, Sydney", carImages : ["InfinitiQ50","Infiniti-q50-side","Infiniti-Q50-back","Infiniti-Q50-Inside"])
+    let car1 = Car(id: 1, name:"Swift",brand:"Suzuki",price:50,location:"58 Bay street, Ultimo, Sydney", carImages : ["large","Suzuki-Swift-side","Suzuki-Swift-back","Suzuki-Swift-inside"])
+    let car2 = Car(id: 2,name:"CX-5 SUV",brand:"Mazda",price:75,location:"101 Water street, Rockdale, Sydney" , carImages : ["MazdaCX-5","Mada-CX5-side","Mazda-CX5-back","Mazda-CX5-inside"])
+    let car3 = Car(id: 3,name:"Q50 Sedan",brand:"Infiniti",price:150,location:"50 Rich street, Wolli Creek, Sydney", carImages : ["InfinitiQ50","Infiniti-q50-side","Infiniti-Q50-back","Infiniti-Q50-Inside"])
     
     var tableData : [Car] = []
     var filteredTableData = [String]()
@@ -27,7 +27,6 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     }
     
     func myLoadView() {
-        print("viewDidLoad viewDidLoad")
         tableView.delegate = self
         
         searchController = UISearchController(searchResultsController: nil)
