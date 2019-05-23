@@ -31,19 +31,6 @@ class HorizontalScroll: UIScrollView {
 //        setUpScroll()
     }
     
-//    func setUpScroll() {
-//        scroller = UIScrollView()
-//
-////        let dict = [ "scroller": scroller]
-////
-////        let constraint1 = NSLayoutConstraint.constraints(withVisualFormat: "H:|[scroller]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: dict as [String : Any])
-////        let constraint2 = NSLayoutConstraint.constraints(withVisualFormat: "V:|[scoller]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: dict as [String : Any])
-////
-////        self.addConstraints(constraint1)
-////        self.addConstraints(constraint2)
-////        self.addSubview(scroller)
-//    }
-    
     override func didMoveToSuperview() {
         reload()
     }

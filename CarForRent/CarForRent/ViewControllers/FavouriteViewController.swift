@@ -15,7 +15,7 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     let car3 = Car(id: 3,name:"Q50 Sedan",brand:"Infiniti",price:150,location:"50 Rich street, Wolli Creek, Sydney", carImages : ["InfinitiQ50","Infiniti-q50-side","Infiniti-Q50-back","Infiniti-Q50-Inside"])
     
     var tableData : [Car] = []
-    var filteredTableData = [String]()
+    var filteredTableData = [Car]()
     var searchController = UISearchController()
     
     override func viewDidLoad() {
@@ -68,28 +68,35 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        print("updateSearchResults updateSearchResults")
         filteredTableData.removeAll(keepingCapacity: false)
-        
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (tableData as NSArray).filtered(using: searchPredicate)
-        filteredTableData = array as! [String]
+        let matchingModels = self.tableData.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+        filteredTableData = matchingModels
         
         self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CarDetailCell
-        cell.car = tableData[indexPath.row]
+        
+        if  (searchController.isActive) {
+            cell.car = filteredTableData[indexPath.row]
+        } else {
+            cell.car = tableData[indexPath.row]
+        }
         cell.populateData()
-
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToCarDetail") {
+            let viewController = segue.destination as! CarDetailsViewController
+            let cell = sender as! CarDetailCell
+            viewController.car = cell.car
+            viewController.populateData()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CarDetailCell
-//        return 10 + cell.carImage.frame.height + 15 + cell.carNameLabel.frame
-//        .height + 10
         return 250
     }
 

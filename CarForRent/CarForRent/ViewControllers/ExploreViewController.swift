@@ -19,6 +19,10 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         // Do any additional setup after loading the view, typically from a nib.
         hideKeyboardWhenTappedAround()
         
+//        let resultsTableController = storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
+//        resultsTableController.myLoadView()
+//        
+//        searchController = UISearchController(searchResultsController: resultsTableController)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

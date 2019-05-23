@@ -110,7 +110,7 @@
         <!--Favourite View Controller-->
         <scene sceneID="tSd-Gb-9IX">
             <objects>
-                <tableViewController id="TcF-CC-zvi" customClass="FavouriteViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FavouriteViewController" id="TcF-CC-zvi" customClass="FavouriteViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DAU-4M-BYp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
                                 <connections>
                                     <outlet property="carImage" destination="b41-vw-oqL" id="Ewg-be-glL"/>
                                     <outlet property="carNameLabel" destination="S6k-6t-fYk" id="Saa-0F-0f5"/>
-                                    <segue destination="YUv-Vh-GMb" kind="show" id="qfI-gQ-Svx"/>
+                                    <segue destination="YUv-Vh-GMb" kind="show" identifier="goToCarDetail" id="qh3-KC-r1r"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -166,7 +166,7 @@
         <!--Car Details View Controller-->
         <scene sceneID="8fY-v0-D85">
             <objects>
-                <viewController id="YUv-Vh-GMb" customClass="CarDetailsViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarDetailsViewController" id="YUv-Vh-GMb" customClass="CarDetailsViewController" customModule="CarForRent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r21-0O-jv2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
                         <viewLayoutGuide key="safeArea" id="zxx-QC-urq"/>
                     </view>
                     <connections>
-                        <outlet property="imageScrollView" destination="PkG-fB-CXA" id="zFB-9U-np6"/>
+                        <outlet property="imageScrollView" destination="PkG-fB-CXA" id="rTb-VF-grU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lK9-w5-OIs" userLabel="First Responder" sceneMemberID="firstResponder"/>

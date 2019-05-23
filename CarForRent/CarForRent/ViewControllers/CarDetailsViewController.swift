@@ -8,18 +8,36 @@
 
 import UIKit
 
-class CarDetailsViewController: UIViewController {
+class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
+    
 
     @IBOutlet weak var imageScrollView: HorizontalScroll!
-    
+    var car : Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("viewDidLoad viewDidLoad ")
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print(imageScrollView.frame)
+        imageScrollView.myDelegate = self
+        imageScrollView?.reload()
+    }
+    
+    func populateData(){
+//        imageScrollView?.reload()
+    }
+    
+    func numberOfScrollViewElements() -> Int {
+        return (car?.carImages.count)!
+    }
+    
+    func elementAtScrollViewIndex(index: Int) -> UIImageView {
+        return UIImageView(image: UIImage(named: car?.carImages[index] ?? "defaultCarImage"))
+    }
     /*
     // MARK: - Navigation
 
