@@ -38,12 +38,13 @@ class HorizontalScroll: UIScrollView {
     func reload() {
         print("reload reload")
         if let del = myDelegate {
-            print("reload reload")
+            //print("reload reload")
             var xOffset: CGFloat = 0
             for index in 0..<del.numberOfScrollViewElements() {
                 let imageView = del.elementAtScrollViewIndex(index: index)
-                imageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(120.0), height: CGFloat(120.0))
-
+                imageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
+                imageView.contentMode = .scaleAspectFit
+                    
                 xOffset = xOffset + CGFloat(PADDING) + imageView.frame.size.width
                 self.addSubview(imageView)
 

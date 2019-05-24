@@ -10,9 +10,23 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+
+    @IBOutlet weak var userWelcome: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    //@IBOutlet weak var payment: UILabel!
+    @IBOutlet weak var address: UILabel!
+    
+    
+    var user = User.getDefaultUser()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userWelcome.text = "Hi! \(user.name)"
+        email.text = user.email
+        phone.text = user.phone
+        address.text = user.address
         // Do any additional setup after loading the view.
     }
     

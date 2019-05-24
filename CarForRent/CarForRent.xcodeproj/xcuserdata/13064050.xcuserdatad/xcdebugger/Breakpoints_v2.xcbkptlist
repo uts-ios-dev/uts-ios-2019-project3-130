@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarForRent/ViewControllers/OrderViewController.swift"
-            timestampString = "580110700.682819"
+            timestampString = "580376325.002746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "elementAtScrollViewIndex(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,13 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarForRent/Helpers/HorizontalScrollBar.swift"
-            timestampString = "580110700.6831779"
+            timestampString = "580376325.002809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "reload()"
-            landmarkType = "7">
+            endingLineNumber = "56">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
