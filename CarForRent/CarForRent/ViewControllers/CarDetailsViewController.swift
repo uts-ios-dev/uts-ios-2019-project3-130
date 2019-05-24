@@ -12,11 +12,20 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     
 
     @IBOutlet weak var imageScrollView: HorizontalScroll!
+
+    @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var CarDetailDescription: UILabel!
     var car : Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad viewDidLoad ")
+
+      scroll.frame = view.frame
+      scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
+        CarDetailDescription.sizeToFit()
+        CarDetailDescription.numberOfLines = 0
+        elementAtCarDetailsScrollViewIndex(car: car!)
         // Do any additional setup after loading the view.
     }
     
@@ -28,6 +37,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func populateData(){
+//        imageScrollView.contentSize
 //        imageScrollView?.reload()
     }
     
@@ -38,6 +48,16 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     func elementAtScrollViewIndex(index: Int) -> UIImageView {
         return UIImageView(image: UIImage(named: car?.carImages[index] ?? "defaultCarImage"))
     }
+    func elementAtCarDetailsScrollViewIndex(car:Car) {
+        CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+        
+    }
+    @IBAction func Goback(_ sender: UIButton) {
+
+            dismiss(animated: true, completion: nil)
+      
+    }
+   
     /*
     // MARK: - Navigation
 
