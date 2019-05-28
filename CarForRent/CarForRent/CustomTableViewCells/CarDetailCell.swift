@@ -19,7 +19,6 @@ class CarDetailCell: UITableViewCell {
         // Initialization code
         carNameLabel.sizeToFit()
         carNameLabel.numberOfLines = 0
-        populateData()
     }
     
     func populateData(){

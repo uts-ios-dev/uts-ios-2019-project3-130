@@ -15,6 +15,8 @@
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
 		DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9927432293B086007E187A /* HorizontalScrollBar.swift */; };
 		E074FA6322966DCE008D68AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074FA6222966DCE008D68AF /* User.swift */; };
+		E0C9AFD9229CCB9900DED73C /* ExploreCarsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9AFD8229CCB9900DED73C /* ExploreCarsCollectionView.swift */; };
+		E0C9AFDB229CCE7400DED73C /* ExploreCarsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9AFDA229CCE7400DED73C /* ExploreCarsCollectionCell.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
 		E0D7878722926E6B00658EE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878522926E6B00658EE9 /* Main.storyboard */; };
 		E0D7878922926E6C00658EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878822926E6C00658EE9 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DE9927432293B086007E187A /* HorizontalScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBar.swift; sourceTree = "<group>"; };
 		E074FA6222966DCE008D68AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E0C9AFD8229CCB9900DED73C /* ExploreCarsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCarsCollectionView.swift; sourceTree = "<group>"; };
+		E0C9AFDA229CCE7400DED73C /* ExploreCarsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCarsCollectionCell.swift; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D7877F22926E6B00658EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D7878622926E6B00658EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E0C9AFD5229CCB0B00DED73C /* CustomCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E0C9AFD8229CCB9900DED73C /* ExploreCarsCollectionView.swift */,
+				E0C9AFDA229CCE7400DED73C /* ExploreCarsCollectionCell.swift */,
+			);
+			path = CustomCollectionView;
+			sourceTree = "<group>";
+		};
 		E0D7877322926E6B00658EE9 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 		E0D7877E22926E6B00658EE9 /* CarForRent */ = {
 			isa = PBXGroup;
 			children = (
+				E0C9AFD5229CCB0B00DED73C /* CustomCollectionView */,
 				44ED678D22938EFF002AF03A /* Models */,
 				44ED678A22938A6F002AF03A /* CustomTableViewCells */,
 				E0F70708229379D00031F718 /* Helpers */,
@@ -219,9 +233,11 @@
 				422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */,
 				E0D787A32292781300658EE9 /* ExploreViewController.swift in Sources */,
 				44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */,
+				E0C9AFD9229CCB9900DED73C /* ExploreCarsCollectionView.swift in Sources */,
 				E0D787A22292781300658EE9 /* MainTabBarController.swift in Sources */,
 				44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */,
 				E0D787A12292781300658EE9 /* ProfileViewController.swift in Sources */,
+				E0C9AFDB229CCE7400DED73C /* ExploreCarsCollectionCell.swift in Sources */,
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
 				E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */,
