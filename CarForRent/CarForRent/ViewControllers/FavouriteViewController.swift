@@ -10,9 +10,9 @@ import UIKit
 
 class FavouriteViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     var carPictures = CarDetailCell()
-    let car1 = Car(id: 1, name:"Swift",brand:"Suzuki",price:50,location:"58 Bay street, Ultimo, Sydney", carImages : ["large","Suzuki-Swift-side","Suzuki-Swift-back","Suzuki-Swift-inside"])
-    let car2 = Car(id: 2,name:"CX-5 SUV",brand:"Mazda",price:75,location:"101 Water street, Cabramatta West, Sydney" , carImages : ["MazdaCX-5","Mada-CX5-side","Mazda-CX5-back","Mazda-CX5-inside"])
-    let car3 = Car(id: 3,name:"Q50 Sedan",brand:"Infiniti",price:150,location:"50 Rich street, Marrickville, Sydney", carImages : ["InfinitiQ50","Infiniti-q50-side","Infiniti-Q50-back","Infiniti-Q50-Inside"])
+    let car1 = Car.GetDefaultCar()
+    let car2 = Car.GetDefaultCar()
+    let car3 = Car.GetDefaultCar()
     
     var tableData : [Car] = []
     var filteredTableData = [Car]()

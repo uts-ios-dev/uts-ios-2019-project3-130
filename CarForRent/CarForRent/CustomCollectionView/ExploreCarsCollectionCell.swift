@@ -12,7 +12,7 @@ import UIKit
 class ExploreCarsCollectionCell : UICollectionViewCell {
     
     @IBOutlet weak var carImageView: UIImageView!
-    @IBOutlet weak var branchLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
     var carData : Car?
     
     override func awakeFromNib() {

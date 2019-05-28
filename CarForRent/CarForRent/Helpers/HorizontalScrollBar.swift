@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc protocol HorizontalScrollDelegate {
+protocol HorizontalScrollDelegate {
     
     func numberOfScrollViewElements() -> Int
     

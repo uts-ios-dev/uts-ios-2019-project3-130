@@ -12,8 +12,10 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataManager = DataManager()
-        dataManager.saveUsers()
+        NetworkManager.shared.retrieveCars(type : "Toyota")
+//        NetworkManager.shared.getCars(type: "Toyota")
+//        Car.GetDefaultCar().ToJsonString()
+//        NetworkManager.shared.uploadCarToServer(car: Car.GetDefaultCar())
         // Do any additional setup after loading the view.
 //        if let count = self.tabBar.items?.count {
 //            for i in 0...(count-1) {

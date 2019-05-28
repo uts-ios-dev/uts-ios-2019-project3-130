@@ -58,7 +58,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     func elementAtCarDetailsScrollViewIndex(car:Car?) {
         if let car = car {
-            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.street) \n Price: \(car.price)"
         } else {
             CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
         }

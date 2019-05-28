@@ -15,8 +15,9 @@ struct DataManager {
         
         let jsonEncoder = JSONEncoder()
         do{
-            let jsonData = try jsonEncoder.encode(user)
-            print(jsonData)
+//            let jsonData = try jsonEncoder.encode(user)
+//            let jsonString = try JSONDecoder.decode(jsonDa
+//            user.ToJsonString()
         }
         catch {
             return

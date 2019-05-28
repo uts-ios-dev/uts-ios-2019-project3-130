@@ -31,7 +31,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzB-xn-fHu">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXv-64-zgC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXv-64-zgC">
                                                 <rect key="frame" x="20" y="17.5" width="335" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                 <nil key="textColor"/>
@@ -977,7 +977,6 @@
         <image name="Explore-Icon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hpR-2S-TLa"/>
         <segue reference="yT7-Bw-nqW"/>
         <segue reference="4oO-4c-kj6"/>
     </inferredMetricsTieBreakers>

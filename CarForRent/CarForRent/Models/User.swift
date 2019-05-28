@@ -30,7 +30,7 @@ import Foundation
 //}
 
 
-class User: Codable {
+class User {
     var id : Int = 0
     var name : String = ""
     var email : String = ""

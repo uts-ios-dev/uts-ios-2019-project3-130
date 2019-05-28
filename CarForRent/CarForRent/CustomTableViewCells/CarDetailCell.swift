@@ -24,7 +24,7 @@ class CarDetailCell: UITableViewCell {
     func populateData(){
         // Configure the cell...
         if let car = car {
-            carNameLabel.text = "name: \(car.name) Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+            carNameLabel.text = "name: \(car.name) Brand: \(car.brand) \n Location: \(car.street) \n Price: \(car.price)"
         }
         carImage.image = UIImage(named: getThumbnailPic())
     }
