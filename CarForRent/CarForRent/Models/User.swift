@@ -39,7 +39,7 @@ class User {
         defaultUser.rentingCars = [rentingCar]
         let pastRentedCars3 = Car(id: 771, name: "MazdaCX-5", brand: "MazdaCX-5", price: 199, location: "Ultimo", carImages: ["MazdaCX-5.png","Mada-CX5-side.png","Mazda-CX5-back.png","Mazda-CX5-inside.png"])
         let pastRentedCars4 = Car(id: 774, name: "Suzuki-Swift", brand: "Suzuki-Swift", price: 254, location: "Zetland", carImages: ["large.png","Suzuki-Swift-side.png","Suzuki-Swift-back.png","Suzuki-Swift-inside.png"])
-        defaultUser.rentingCars = [rentingCar]
+        defaultUser.rentingCars = [rentingCar,rentingCar,rentingCar,rentingCar,rentingCar,rentingCar,rentingCar,rentingCar,rentingCar]
         
         defaultUser.pastRentedCars = [pastRentedCars1,pastRentedCars2,pastRentedCars3,pastRentedCars4]
     

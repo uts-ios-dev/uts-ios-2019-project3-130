@@ -33,9 +33,14 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
         CarDetailDescription.sizeToFit()
         CarDetailDescription.numberOfLines = 0
+<<<<<<< HEAD
         elementAtCarDetailsScrollViewIndex(car: car!)
         addPin(car: car!) // add the annotation to the map
 
+=======
+        elementAtCarDetailsScrollViewIndex(car: car)
+        // Do any additional setup after loading the view.
+>>>>>>> f16770123be0e3486df702572f94dcec2114930d
     }
     
     override func viewWillLayoutSubviews() {
@@ -54,11 +59,17 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         return (car?.carImages.count)!
     }
     
-    func elementAtScrollViewIndex(index: Int) -> UIImageView {
-        return UIImageView(image: UIImage(named: car?.carImages[index] ?? "defaultCarImage"))
+    func elementAtScrollViewIndex(index: Int) -> Car? {
+        return car
     }
-    func elementAtCarDetailsScrollViewIndex(car:Car) {
-        CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+    func elementAtCarDetailsScrollViewIndex(car:Car?) {
+        if let car = car {
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+        } else {
+            CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
+        }
+        
+        
         
     }
     // set initial location and centrelized by the location of the car
