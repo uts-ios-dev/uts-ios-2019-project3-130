@@ -13,7 +13,7 @@ import UIKit
     
     func numberOfScrollViewElements() -> Int
     
-    func elementAtScrollViewIndex(index: Int) -> UIImageView
+    func elementAtScrollViewIndex(index: Int) -> Car?
 }
 
 class HorizontalScroll: UIScrollView {
@@ -24,6 +24,7 @@ class HorizontalScroll: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        setUpScroll()
+        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -41,15 +42,35 @@ class HorizontalScroll: UIScrollView {
             //print("reload reload")
             var xOffset: CGFloat = 0
             for index in 0..<del.numberOfScrollViewElements() {
-                let imageView = del.elementAtScrollViewIndex(index: index)
-                imageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
-                imageView.contentMode = .scaleAspectFit
+                if let carData = del.elementAtScrollViewIndex(index: index) {
+                    let myImageView = UIImageView(image: UIImage.init(named: (carData.carImages[0])))
+                    myImageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
+                    myImageView.contentMode = .scaleAspectFit
                     
-                xOffset = xOffset + CGFloat(PADDING) + imageView.frame.size.width
-                self.addSubview(imageView)
-
+                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+                    myImageView.isUserInteractionEnabled = true
+                    myImageView.addGestureRecognizer(tapGestureRecognizer)
+                    
+                    xOffset = xOffset + CGFloat(PADDING) + myImageView.frame.size.width
+                    self.addSubview(myImageView)
+                }
             }
             contentSize = CGSize(width: xOffset, height: self.frame.height)
         }
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
+//        detailsViewController.car =
+        if let parentViewController = tappedImage.parentViewController {
+            parentViewController.show(detailsViewController, sender: nil)
+        }
+        // Your action
+        
+        
     }
 }

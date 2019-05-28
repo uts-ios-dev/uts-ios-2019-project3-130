@@ -18,6 +18,7 @@
 		E074FA6322966DCE008D68AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074FA6222966DCE008D68AF /* User.swift */; };
 		E0C9AFD9229CCB9900DED73C /* ExploreCarsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9AFD8229CCB9900DED73C /* ExploreCarsCollectionView.swift */; };
 		E0C9AFDB229CCE7400DED73C /* ExploreCarsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9AFDA229CCE7400DED73C /* ExploreCarsCollectionCell.swift */; };
+		E0C9AFDD229CF6B400DED73C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9AFDC229CF6B400DED73C /* UIView+Extension.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
 		E0D7878722926E6B00658EE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878522926E6B00658EE9 /* Main.storyboard */; };
 		E0D7878922926E6C00658EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D7878822926E6C00658EE9 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		E074FA6222966DCE008D68AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0C9AFD8229CCB9900DED73C /* ExploreCarsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCarsCollectionView.swift; sourceTree = "<group>"; };
 		E0C9AFDA229CCE7400DED73C /* ExploreCarsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCarsCollectionCell.swift; sourceTree = "<group>"; };
+		E0C9AFDC229CF6B400DED73C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D7877F22926E6B00658EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D7878622926E6B00658EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
 				DE9927432293B086007E187A /* HorizontalScrollBar.swift */,
 				42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */,
+				E0C9AFDC229CF6B400DED73C /* UIView+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				E0C9AFDB229CCE7400DED73C /* ExploreCarsCollectionCell.swift in Sources */,
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
+				E0C9AFDD229CF6B400DED73C /* UIView+Extension.swift in Sources */,
 				E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

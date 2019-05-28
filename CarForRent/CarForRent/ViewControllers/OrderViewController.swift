@@ -52,9 +52,9 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         return (user?.pastRentedCars.count)!
     }
     
-    func elementAtScrollViewIndex(index: Int) -> UIImageView {
-        let myImageView = UIImageView(image: UIImage.init(named: (user?.pastRentedCars[index].carImages[0])!))
-        return myImageView
+    func elementAtScrollViewIndex(index: Int) -> Car? {
+        return user?.pastRentedCars[index]
+        
     }
     
 

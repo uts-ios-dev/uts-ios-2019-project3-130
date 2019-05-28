@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Car {
+class Car : NSObject {
     var id : Int
     var carImages : [String]
     var name:String

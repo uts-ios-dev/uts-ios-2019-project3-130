@@ -25,7 +25,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
       scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
         CarDetailDescription.sizeToFit()
         CarDetailDescription.numberOfLines = 0
-        elementAtCarDetailsScrollViewIndex(car: car!)
+        elementAtCarDetailsScrollViewIndex(car: car)
         // Do any additional setup after loading the view.
     }
     
@@ -45,11 +45,17 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         return (car?.carImages.count)!
     }
     
-    func elementAtScrollViewIndex(index: Int) -> UIImageView {
-        return UIImageView(image: UIImage(named: car?.carImages[index] ?? "defaultCarImage"))
+    func elementAtScrollViewIndex(index: Int) -> Car? {
+        return car
     }
-    func elementAtCarDetailsScrollViewIndex(car:Car) {
-        CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+    func elementAtCarDetailsScrollViewIndex(car:Car?) {
+        if let car = car {
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+        } else {
+            CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
+        }
+        
+        
         
     }
     @IBAction func Goback(_ sender: UIButton) {

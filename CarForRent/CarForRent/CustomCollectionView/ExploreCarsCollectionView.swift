@@ -50,7 +50,6 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         if let cars = cars {
-            print("numberOfItemsInSection numberOfItemsInSection \(cars.count)")
             return cars.count
         }
         print("1111")
@@ -118,19 +117,6 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
     // MARK: Cell Flow Layou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.bounds.width/2.5, height: self.bounds.height/2)
-    }
-}
-
-extension UIView {
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
     }
 }
 
