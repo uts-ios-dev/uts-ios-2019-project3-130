@@ -10,6 +10,7 @@
 		422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAA229657260010E5CB /* RegisterViewController.swift */; };
 		422ADEAD229674CB0010E5CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAC229674CB0010E5CB /* LoginViewController.swift */; };
 		422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */; };
+		4433AE62229CEE170005696D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433AE61229CEE170005696D /* Location.swift */; };
 		44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */; };
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
@@ -32,6 +33,7 @@
 		422ADEAA229657260010E5CB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		422ADEAC229674CB0010E5CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
+		4433AE61229CEE170005696D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		44ED678D22938EFF002AF03A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4433AE61229CEE170005696D /* Location.swift */,
 				44ED678E22938F15002AF03A /* Car.swift */,
 				E074FA6222966DCE008D68AF /* User.swift */,
 			);
@@ -225,6 +228,7 @@
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
 				E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */,
+				4433AE62229CEE170005696D /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

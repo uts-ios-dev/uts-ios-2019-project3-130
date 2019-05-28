@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFz-P7-gqY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFz-P7-gqY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -174,12 +174,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtx-Iy-UF4">
                                 <rect key="frame" x="0.0" y="20" width="375" height="66.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8W-rb-nfP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8W-rb-nfP">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="66.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="kpM-de-Xqb"/>
                                         </constraints>
-                                        <state key="normal" title="Back"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="Goback:" destination="YUv-Vh-GMb" eventType="touchUpInside" id="D1Z-cc-4Jk"/>
                                         </connections>
@@ -214,18 +216,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7m-rv-Iok">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="25.5"/>
+                                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SDp-H2-cBp">
+                                                <rect key="frame" x="0.0" y="25.5" width="375" height="245.5"/>
+                                            </mapView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="SDp-H2-cBp" secondAttribute="bottom" id="5IY-pa-EC9"/>
                                             <constraint firstItem="B7m-rv-Iok" firstAttribute="leading" secondItem="vfW-k3-Mup" secondAttribute="leading" id="5aq-rY-aYS"/>
                                             <constraint firstItem="B7m-rv-Iok" firstAttribute="top" secondItem="vfW-k3-Mup" secondAttribute="top" id="5hJ-on-NQO"/>
                                             <constraint firstAttribute="trailing" secondItem="B7m-rv-Iok" secondAttribute="trailing" id="RPU-dW-frS"/>
+                                            <constraint firstAttribute="trailing" secondItem="SDp-H2-cBp" secondAttribute="trailing" id="WwO-B1-P6M"/>
                                             <constraint firstItem="B7m-rv-Iok" firstAttribute="width" secondItem="vfW-k3-Mup" secondAttribute="width" id="YVX-1P-qT7"/>
+                                            <constraint firstItem="SDp-H2-cBp" firstAttribute="leading" secondItem="vfW-k3-Mup" secondAttribute="leading" id="c3Q-sw-MWY"/>
+                                            <constraint firstItem="SDp-H2-cBp" firstAttribute="top" secondItem="B7m-rv-Iok" secondAttribute="bottom" id="c7c-Ul-5jx"/>
                                             <constraint firstAttribute="bottom" secondItem="B7m-rv-Iok" secondAttribute="bottom" constant="245.5" id="tag-lT-EUt"/>
                                         </constraints>
                                     </scrollView>
@@ -241,9 +250,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNl-Kr-AQf">
                                 <rect key="frame" x="0.0" y="620.5" width="375" height="46.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-on-JaK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-on-JaK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
-                                        <state key="normal" title="Book"/>
+                                        <state key="normal" title="Book">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,6 +290,7 @@
                     <connections>
                         <outlet property="CarDetailDescription" destination="B7m-rv-Iok" id="DeE-JD-axU"/>
                         <outlet property="imageScrollView" destination="PkG-fB-CXA" id="rTb-VF-grU"/>
+                        <outlet property="mapVie" destination="SDp-H2-cBp" id="l2H-dp-dFo"/>
                         <outlet property="scroll" destination="vfW-k3-Mup" id="TSe-8C-PRl"/>
                     </connections>
                 </viewController>
@@ -777,6 +789,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="t3h-Oz-jWX"/>
-        <segue reference="kPv-8V-JH1"/>
+        <segue reference="4oO-4c-kj6"/>
     </inferredMetricsTieBreakers>
 </document>
