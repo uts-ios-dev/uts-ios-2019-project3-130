@@ -33,14 +33,8 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
         CarDetailDescription.sizeToFit()
         CarDetailDescription.numberOfLines = 0
-<<<<<<< HEAD
         elementAtCarDetailsScrollViewIndex(car: car!)
         addPin(car: car!) // add the annotation to the map
-
-=======
-        elementAtCarDetailsScrollViewIndex(car: car)
-        // Do any additional setup after loading the view.
->>>>>>> f16770123be0e3486df702572f94dcec2114930d
     }
     
     override func viewWillLayoutSubviews() {
