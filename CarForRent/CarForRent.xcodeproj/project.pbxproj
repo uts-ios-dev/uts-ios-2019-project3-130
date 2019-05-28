@@ -10,6 +10,7 @@
 		422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAA229657260010E5CB /* RegisterViewController.swift */; };
 		422ADEAD229674CB0010E5CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAC229674CB0010E5CB /* LoginViewController.swift */; };
 		422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */; };
+		42AFFE1A229CE52000591CD9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */; };
 		44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */; };
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
@@ -32,6 +33,7 @@
 		422ADEAA229657260010E5CB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		422ADEAC229674CB0010E5CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
+		42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
 				DE9927432293B086007E187A /* HorizontalScrollBar.swift */,
+				42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */,
 				E0D787A22292781300658EE9 /* MainTabBarController.swift in Sources */,
 				44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */,
+				42AFFE1A229CE52000591CD9 /* UIImage+Extension.swift in Sources */,
 				E0D787A12292781300658EE9 /* ProfileViewController.swift in Sources */,
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
