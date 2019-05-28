@@ -13,6 +13,8 @@
 		44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */; };
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
+		DE0A140E229CD4EA00293D8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A140D229CD4EA00293D8A /* SwiftyJSON.swift */; };
+		DE0A1410229CE14B00293D8A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A140F229CE14B00293D8A /* DataManager.swift */; };
 		DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9927432293B086007E187A /* HorizontalScrollBar.swift */; };
 		E074FA6322966DCE008D68AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E074FA6222966DCE008D68AF /* User.swift */; };
 		E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7877F22926E6B00658EE9 /* AppDelegate.swift */; };
@@ -35,6 +37,8 @@
 		44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		DE0A140D229CD4EA00293D8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		DE0A140F229CE14B00293D8A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DE9927432293B086007E187A /* HorizontalScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBar.swift; sourceTree = "<group>"; };
 		E074FA6222966DCE008D68AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0D7877C22926E6B00658EE9 /* CarForRent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarForRent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				44ED678E22938F15002AF03A /* Car.swift */,
+				DE0A140F229CE14B00293D8A /* DataManager.swift */,
 				E074FA6222966DCE008D68AF /* User.swift */,
 			);
 			path = Models;
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
+				DE0A140D229CD4EA00293D8A /* SwiftyJSON.swift */,
 				DE9927432293B086007E187A /* HorizontalScrollBar.swift */,
 			);
 			path = Helpers;
@@ -214,6 +220,7 @@
 				E0F7070A229379EF0031F718 /* UIViewController+Extension.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
 				DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */,
+				DE0A1410229CE14B00293D8A /* DataManager.swift in Sources */,
 				44ED678F22938F15002AF03A /* Car.swift in Sources */,
 				E0D787A02292781300658EE9 /* FavouriteViewController.swift in Sources */,
 				422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */,
@@ -223,6 +230,7 @@
 				44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */,
 				E0D787A12292781300658EE9 /* ProfileViewController.swift in Sources */,
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
+				DE0A140E229CD4EA00293D8A /* SwiftyJSON.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
 				E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */,
 			);

@@ -12,7 +12,8 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let dataManager = DataManager()
+        dataManager.saveUsers()
         // Do any additional setup after loading the view.
 //        if let count = self.tabBar.items?.count {
 //            for i in 0...(count-1) {

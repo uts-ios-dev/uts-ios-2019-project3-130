@@ -18,15 +18,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var address: UILabel!
     
     
-    var user = User.getDefaultUser()
+    //var user = User.getDefaultUser()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userWelcome.text = "Hi! \(user.name)"
-        email.text = user.email
-        phone.text = user.phone
-        address.text = user.address
+        //userWelcome.text = "Hi! \(user.name)"
+        //email.text = user.email
+        //phone.text = user.phone
+        //address.text = user.address
         // Do any additional setup after loading the view.
     }
     

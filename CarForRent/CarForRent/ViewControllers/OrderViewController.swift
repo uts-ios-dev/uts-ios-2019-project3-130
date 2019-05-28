@@ -27,17 +27,17 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        user = User.getDefaultUser()
+        //user = User.getDefaultUser()
         populateData()
-        let rentingCarImage: String = (user?.rentingCars[0].carImages[0])!
-        rentingCar.image = UIImage(named: rentingCarImage)
-        brand.text = user?.rentingCars[0].brand
-        carName.text = user?.rentingCars[0].name
-        if let carPrice = user?.rentingCars[0].price {
-            price.text = "\(carPrice)"        }
+        //let rentingCarImage: String = (user?.rentingCars[0].carImages[0])!
+        //rentingCar.image = UIImage(named: rentingCarImage)
+        //brand.text = user?.rentingCars[0].brand
+        //carName.text = user?.rentingCars[0].name
+        //if let carPrice = user?.rentingCars[0].price {
+        //    price.text = "\(carPrice)"        }
         //price.text = "\(String(describing: user?.rentingCars[0].price))"
-        location.text = user?.rentingCars[0].location
-        date.text = "12/05/2019"
+        //location.text = user?.rentingCars[0].location
+        //date.text = "12/05/2019"
         //print(scrollView.frame)
         
     }
@@ -53,7 +53,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func elementAtScrollViewIndex(index: Int) -> UIImageView {
-        let myImageView = UIImageView(image: UIImage.init(named: (user?.pastRentedCars[index].carImages[0])!))
+        let myImageView = UIImageView(image: UIImage.init(named: "large.png"))
         return myImageView
     }
     
