@@ -9,12 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CarForRent/Helpers/HorizontalScrollBar.swift"
-            timestampString = "580376325.002809"
+            filePath = "CarForRent/ViewControllers/CarDetailsViewController.swift"
+            timestampString = "580720001.322472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56">
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "CarDetailsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

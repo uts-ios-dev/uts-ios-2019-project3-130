@@ -10,6 +10,9 @@ import UIKit
 
 class registerViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet var Bgd: UIImageView!
+    
+    @IBOutlet weak var titleForm: UILabel!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var emailText: UITextField!
@@ -17,6 +20,9 @@ class registerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var passText: UITextField!
     @IBOutlet weak var repPassText: UITextField!
+    
+    @IBOutlet var Signup: UIButton!
+    @IBOutlet var GoBack: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,10 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         phoneText.delegate = self
         passText.delegate = self
         repPassText.delegate = self
+        Bgd.image = UIImage(named: "sign-up.jpg")?.alpha(0.5)
+        customizeLabel(titleForm)
+        customizeButton(Signup)
+        customizeButton(GoBack)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,5 +83,16 @@ class registerViewController: UIViewController, UITextFieldDelegate {
         let alertAct = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAct)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func customizeLabel(_ label: UILabel) {
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 20)
+    }
+    
+    func customizeButton(_ button: UIButton) {
+        button.backgroundColor = UIColor.black
+        button.titleLabel?.font = UIFont(name: "AvenirNext-DemiBole",size: 20)
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 2.5
     }
 }

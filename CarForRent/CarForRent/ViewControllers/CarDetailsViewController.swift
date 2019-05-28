@@ -7,26 +7,34 @@
 //
 
 import UIKit
+import MapKit
 
 class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
+    var location:Location?
     
-
     @IBOutlet weak var imageScrollView: HorizontalScroll!
 
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var CarDetailDescription: UILabel!
+    @IBOutlet weak var mapVie: MKMapView!
+    var locationArray : [Location]?=[]
     var car : Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad viewDidLoad ")
 
-      scroll.frame = view.frame
-      scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
+        
+        // creat location instance,
+        let location1 = Location(locationName: "Swift", coordinate: CLLocationCoordinate2DMake(-33.882142,  151.195291) )
+        let location2 = Location(locationName: "CX-5 SUV", coordinate: CLLocationCoordinate2DMake(-33.894878, 150.914204) )
+         let location3 = Location(locationName: "Q50 Sedan", coordinate: CLLocationCoordinate2DMake(-33.905200, 151.163675) )
+        locationArray = [location1,location2,location3]
+        scroll.frame = view.frame
+        scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
         CarDetailDescription.sizeToFit()
         CarDetailDescription.numberOfLines = 0
         elementAtCarDetailsScrollViewIndex(car: car!)
-        // Do any additional setup after loading the view.
+        addPin(car: car!) // add the annotation to the map
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,17 +53,51 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         return (car?.carImages.count)!
     }
     
-    func elementAtScrollViewIndex(index: Int) -> UIImageView {
-        return UIImageView(image: UIImage(named: car?.carImages[index] ?? "defaultCarImage"))
+    func elementAtScrollViewIndex(index: Int) -> Car? {
+        return car
     }
-    func elementAtCarDetailsScrollViewIndex(car:Car) {
-        CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+    func elementAtCarDetailsScrollViewIndex(car:Car?) {
+        if let car = car {
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.location) \n Price: \(car.price)"
+        } else {
+            CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
+        }
         
+        
+        
+    }
+    // set initial location and centrelized by the location of the car
+    func centerMapOnLocation(location: CLLocationCoordinate2D) {
+        let regionRadius: CLLocationDistance = 5000
+        let coordinateRegion = MKCoordinateRegion(center: location,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapVie.setRegion(coordinateRegion, animated: true)
+        
+        
+    }
+    // add the annotation to the map
+    func addPin(car:Car){
+        let pin = returnTheLocation(carName: car.name)  // get the name of the car and retrieve in location array based on the matched name
+        mapVie.addAnnotation(pin)
+        centerMapOnLocation(location:pin.coordinate)
     }
     @IBAction func Goback(_ sender: UIButton) {
 
             dismiss(animated: true, completion: nil)
       
+    }
+
+        
+    
+// retrieve the car name in location, once matched, then return the coodinate of the location
+    func returnTheLocation(carName:String)-> Location{
+        var annotation = Location(locationName: "initialLocation", coordinate:CLLocationCoordinate2DMake(-33.8688,151.2093))
+        for item in locationArray! {
+            if carName == item.locationName{
+                annotation = item
+            }
+        }
+        return annotation
     }
    
     /*

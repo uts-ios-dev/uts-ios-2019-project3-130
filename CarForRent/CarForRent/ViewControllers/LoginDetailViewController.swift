@@ -14,11 +14,23 @@ class LoginDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var username: UITextField!
     // Input text of password
     @IBOutlet weak var password: UITextField!
+    // Labels & buttons
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var Login: UIButton!
+    @IBOutlet weak var GoBack: UIButton!
+    // Background image
+    @IBOutlet var Bgd: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
+        Bgd.image = UIImage(named: "log-in.jpg")?.alpha(0.5)
+        customizeLabel(userLabel)
+        customizeLabel(passLabel)
+        customizeButton(Login)
+        customizeButton(GoBack)
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,5 +78,18 @@ class LoginDetailViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
     }
+ 
+    func customizeLabel(_ label: UILabel) {
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 24)
+        label.backgroundColor = UIColor.darkGray
+        label.textColor = UIColor.white
+        label.layer.cornerRadius = 20
+    }
     
+    func customizeButton(_ button: UIButton) {
+        button.backgroundColor = UIColor.black
+        button.titleLabel?.font = UIFont(name: "AvenirNext-DemiBole",size: 20)
+        button.layer.cornerRadius = 25
+        button.layer.borderWidth = 3.0
+    }
 }

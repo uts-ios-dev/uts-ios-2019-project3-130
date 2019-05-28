@@ -14,6 +14,9 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
     var searchController = UISearchController()
     var searchResultView : UIView?
     
+    @IBOutlet weak var brandCollectionView: ExploreCarsCollectionView!
+    @IBOutlet weak var sydneyCollectionView: ExploreCarsCollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

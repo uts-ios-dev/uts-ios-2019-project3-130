@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MapKit
 
-class Car {
+class Car : NSObject {
     var id : Int
     var carImages : [String]
     var name:String
@@ -36,6 +37,8 @@ class Car {
         
     }
     
-    
+    static func GetDefaultCar() -> Car {
+        return Car(id: 800, name: "MyCar", brand: "Mecedes", price: 90000, location:"", carImages: ["frontPic","sidePic","backpic","insidePic"])
+    }
 }
 
