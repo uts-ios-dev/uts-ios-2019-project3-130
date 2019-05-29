@@ -19,5 +19,53 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarForRent/Models/Car.swift"
+            timestampString = "580802290.034758"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "init(id:name:brand:price:longitude:latitude:street:city:carImages:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarForRent.Car.__allocating_init(id: Swift.Int, name: Swift.String, brand: Swift.String, price: Swift.Int, longitude: Swift.String, latitude: Swift.String, street: Swift.String, city: Swift.String, carImages: Swift.Array&lt;Swift.String&gt;) -&gt; CarForRent.Car"
+                  moduleName = "CarForRent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/12842201/Desktop/uts-ios-2019-project3-130/CarForRent/CarForRent/Models/Car.swift"
+                  timestampString = "580799894.284979"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarForRent.Car.init(id: Swift.Int, name: Swift.String, brand: Swift.String, price: Swift.Int, longitude: Swift.String, latitude: Swift.String, street: Swift.String, city: Swift.String, carImages: Swift.Array&lt;Swift.String&gt;) -&gt; CarForRent.Car"
+                  moduleName = "CarForRent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/12842201/Desktop/uts-ios-2019-project3-130/CarForRent/CarForRent/Models/Car.swift"
+                  timestampString = "580799894.2878079"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

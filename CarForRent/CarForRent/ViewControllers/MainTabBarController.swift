@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkManager.shared.retrieveCars(type : "Toyota")
+        
 //        NetworkManager.shared.getCars(type: "Toyota")
 //        Car.GetDefaultCar().ToJsonString()
 //        NetworkManager.shared.uploadCarToServer(car: Car.GetDefaultCar())
