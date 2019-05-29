@@ -12,11 +12,11 @@
 		422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */; };
 		42AFFE1A229CE52000591CD9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */; };
 		4433AE63229D14380005696D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433AE61229CEE170005696D /* Location.swift */; };
+		44DF605B229E4265009696ED /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DF605A229E4265009696ED /* DataManager.swift */; };
 		44E6EEB42294002A007D5DA6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */; };
 		44ED678C22938AB9002AF03A /* CarDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678B22938AB9002AF03A /* CarDetailCell.swift */; };
 		44ED678F22938F15002AF03A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED678E22938F15002AF03A /* Car.swift */; };
 		DE0A140E229CD4EA00293D8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A140D229CD4EA00293D8A /* SwiftyJSON.swift */; };
-		DE0A1410229CE14B00293D8A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A140F229CE14B00293D8A /* DataManager.swift */; };
 		DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9927432293B086007E187A /* HorizontalScrollBar.swift */; };
 		E04E552D229D781B00A5E011 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E552C229D781B00A5E011 /* NetworkManager.swift */; };
 		E04E5565229D7E9300A5E011 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04E5558229D7E8000A5E011 /* Alamofire.framework */; };
@@ -118,11 +118,11 @@
 		422ADEAE22967B4F0010E5CB /* LoginDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
 		42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4433AE61229CEE170005696D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		44DF605A229E4265009696ED /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		44E6EEB32294002A007D5DA6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		44ED678B22938AB9002AF03A /* CarDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailCell.swift; sourceTree = "<group>"; };
 		44ED678E22938F15002AF03A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		DE0A140D229CD4EA00293D8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		DE0A140F229CE14B00293D8A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DE9927432293B086007E187A /* HorizontalScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBar.swift; sourceTree = "<group>"; };
 		E04E552C229D781B00A5E011 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E04E554C229D7E8000A5E011 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../Alamofire-4.7.0/Alamofire.xcodeproj"; sourceTree = "<group>"; };
@@ -171,8 +171,8 @@
 			children = (
 				4433AE61229CEE170005696D /* Location.swift */,
 				44ED678E22938F15002AF03A /* Car.swift */,
-				DE0A140F229CE14B00293D8A /* DataManager.swift */,
 				E074FA6222966DCE008D68AF /* User.swift */,
+				44DF605A229E4265009696ED /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -410,7 +410,6 @@
 				E04E556B229D8FF200A5E011 /* ConstantDefinition.swift in Sources */,
 				E0D7878022926E6B00658EE9 /* AppDelegate.swift in Sources */,
 				DE9927442293B086007E187A /* HorizontalScrollBar.swift in Sources */,
-				DE0A1410229CE14B00293D8A /* DataManager.swift in Sources */,
 				44ED678F22938F15002AF03A /* Car.swift in Sources */,
 				E0D787A02292781300658EE9 /* FavouriteViewController.swift in Sources */,
 				422ADEAF22967B4F0010E5CB /* LoginDetailViewController.swift in Sources */,
@@ -426,6 +425,7 @@
 				E0C9AFDB229CCE7400DED73C /* ExploreCarsCollectionCell.swift in Sources */,
 				422ADEAB229657260010E5CB /* RegisterViewController.swift in Sources */,
 				DE0A140E229CD4EA00293D8A /* SwiftyJSON.swift in Sources */,
+				44DF605B229E4265009696ED /* DataManager.swift in Sources */,
 				E0D7879F2292781300658EE9 /* OrderViewController.swift in Sources */,
 				E0C9AFDD229CF6B400DED73C /* UIView+Extension.swift in Sources */,
 				E0D787A522927DBD00658EE9 /* SearchResultTableViewController.swift in Sources */,

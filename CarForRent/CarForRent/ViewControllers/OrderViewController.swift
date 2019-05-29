@@ -49,11 +49,12 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func numberOfScrollViewElements() -> Int {
-        return (user?.pastRentedCars.count)!
+        return User.getRandomUser().pastRentedCars.count
     }
     
     func elementAtScrollViewIndex(index: Int) -> Car? {
-        return Car.GetDefaultCar()
+   //     return User.getRandomUser().pastRentedCars[index]
+  //      return Car.GetDefaultCar()
 //        return user?.pastRentedCars[index]
         
     }
