@@ -34,14 +34,14 @@ class DataManager {
             var pastedRentedCars: [Int] = []
             var carsForRent : [Int] = []
             
-            rentingCar = Int.random(in: 0 ... 100)
+            rentingCar = Int.random(in: 1 ... 100)
             
-            for _ in 1...Int.random(in: 0 ... 5) {
-                let carId = Int.random(in: 0 ... 100)
+            for _ in 1...Int.random(in: 2 ... 5) {
+                let carId = Int.random(in: 1 ... 100)
                 pastedRentedCars.append(carId)
             }
-            for _ in 1...Int.random(in: 0 ... 5) {
-                let carId = Int.random(in: 0 ... 100)
+            for _ in 1...Int.random(in: 2 ... 5) {
+                let carId = Int.random(in: 1 ... 100)
                 carsForRent.append(carId)
             }
             //let randomCar = allCars.randomElement()
@@ -53,9 +53,11 @@ class DataManager {
     }
     
     func  getCars() -> [Car]{
+        CreateFakeData()
         return allCars
     }
     func getUsers() -> [User] {
+        CreateFakeData()
         return users
     }
 }

@@ -53,9 +53,18 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func elementAtScrollViewIndex(index: Int) -> Car? {
+        let user = User.getRandomUser()
+        let cars = DataManager.shared.getCars()
+        var car: Car?
+        for i in 0...(cars.count-1) {
+            if (cars[i].id == user.pastRentedCars[index]) {
+                car = cars[i]
+            }
+        }
+        return car
    //     return User.getRandomUser().pastRentedCars[index]
   //      return Car.GetDefaultCar()
-//        return user?.pastRentedCars[index]
+  //        return user?.pastRentedCars[index]
         
     }
     
