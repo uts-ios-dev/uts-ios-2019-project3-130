@@ -57,22 +57,27 @@ class NetworkManager {
             "Authorization": ConstantDefinition.NetworkKeys.AirTableApiKey.stringValue,
             "Content-Type": "application/json"
         ]
-        Alamofire.request(URL, method: .get, parameters: [:], headers:headers).responseJSON{
+        var params : [String: String] = [:]
+        if(!type.isEmpty) {
+            params = ["filterByFormula" : "AND(brand=\"Toyota\")"]
+        }
+        
+        Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON{
             response in
             if response.result.isSuccess{
                 print("Success! Got the car data")
-//                print(response)
+                print(response)
                 let carJSON : JSON = JSON(response.result.value!)
-                if let carList = carJSON["records"].array {
-                    for car in carList {
-                        let name = car["fields"]["name"].string ?? "Unknown"
-                        print("name == \(name)")
-                        let brand = car["fields"]["brand"].string ?? "Unknown"
-                        let price = Int(car["fields"]["price"].string!)
-                        let longitude = car["fields"]["longitude"].string ?? "Unknown"
-                        let latitude = car["fields"]["latitude"].string ?? "Unknown"
-                        let street = car["fields"]["street"].string ?? "Unknown"
-                        let city = car["fields"]["city"].string ?? "Unknown"
+//                if let carList = carJSON["records"].array {
+//                    for car in carList {
+//                        let name = car["fields"]["name"].string ?? "Unknown"
+//                        print("name == \(name)")
+//                        let brand = car["fields"]["brand"].string ?? "Unknown"
+//                        let price = Int(car["fields"]["price"].string!)
+//                        let longitude = car["fields"]["longitude"].string ?? "Unknown"
+//                        let latitude = car["fields"]["latitude"].string ?? "Unknown"
+//                        let street = car["fields"]["street"].string ?? "Unknown"
+//                        let city = car["fields"]["city"].string ?? "Unknown"
 //                        var tempCarImages:[String] = []
 //                        if let carImages = car["media"]["photo_links"].array {
 //                            for image in carImages {
@@ -83,8 +88,8 @@ class NetworkManager {
 //                        self.uploadCarToServer(car: newCar)
 //                        print(newCar)
 //                        let record =
-                    }
-                }
+//                    }
+//                }
             }
             else{
                 print("Error: \(String(describing: response.result.error))")
