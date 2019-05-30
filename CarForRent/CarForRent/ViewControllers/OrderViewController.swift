@@ -73,7 +73,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func elementAtScrollViewIndex(index: Int) -> Car? {
-        return DataManager.shared.GetCarById(id: user!.pastRentedCars[0])
+        return DataManager.shared.GetCarById(id: user!.pastRentedCars[index])
     }
     
 

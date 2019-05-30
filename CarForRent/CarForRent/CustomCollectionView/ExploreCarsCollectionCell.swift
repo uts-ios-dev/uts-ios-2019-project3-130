@@ -13,7 +13,7 @@ class ExploreCarsCollectionCell : UICollectionViewCell {
     
     var myImageView : UIImageView = UIImageView()
     var brandLabel : UILabel = UILabel()
-    
+    var isBrandCollection = false
     var carData : Car?
     
     override func awakeFromNib() {
@@ -35,7 +35,11 @@ class ExploreCarsCollectionCell : UICollectionViewCell {
             if(myCar.carImages.count > 0) {
                 displayImage(imageLink: myCar.carImages[0])
             }
-            brandLabel.text = myCar.brand
+            if (isBrandCollection) {
+                brandLabel.text = myCar.brand
+            } else {
+                brandLabel.text = myCar.name
+            }
         }
     }
     
