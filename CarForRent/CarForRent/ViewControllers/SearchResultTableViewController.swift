@@ -19,7 +19,6 @@ class SearchResultTableViewController: UITableViewController, UISearchResultsUpd
     }
     
     func myLoadView() {
-        print("viewDidLoad viewDidLoad")
         tableView.delegate = self
         
         searchController = UISearchController(searchResultsController: nil)
@@ -61,7 +60,6 @@ class SearchResultTableViewController: UITableViewController, UISearchResultsUpd
     
     
     func updateSearchResults(for searchController: UISearchController) {
-        print("updateSearchResults updateSearchResults")
         filteredTableData.removeAll(keepingCapacity: false)
         
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)

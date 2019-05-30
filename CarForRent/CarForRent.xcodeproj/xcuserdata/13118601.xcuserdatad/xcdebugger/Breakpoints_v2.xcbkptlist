@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarForRent/CustomCollectionView/ExploreCarsCollectionView.swift"
-            timestampString = "580758687.798815"
+            timestampString = "580885280.632561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarForRent/CustomCollectionView/ExploreCarsCollectionView.swift"
-            timestampString = "580758687.799072"
+            timestampString = "580885280.632625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -58,6 +58,22 @@
             startingLineNumber = "58"
             endingLineNumber = "58"
             landmarkName = "ToJsonString()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarForRent/ViewControllers/CarDetailsViewController.swift"
+            timestampString = "580885280.632699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "numberOfScrollViewElements()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

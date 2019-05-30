@@ -20,8 +20,7 @@ class NetworkManager {
         Alamofire.request(URL, method: .get, parameters: params).responseJSON{
             response in
             if response.result.isSuccess{
-                print("Success! Got the weather data")
-                print(response)
+//                print(response)
                 let carJSON : JSON = JSON(response.result.value!)
                 if let carList = carJSON["listings"].array {
                     for car in carList {
@@ -40,7 +39,6 @@ class NetworkManager {
                         }
                         let newCar = Car(id: 1, name: name, brand: brand, price: price, longitude: longitude, latitude: latitude, street: street, city:city, carImages: tempCarImages)
 //                        self.uploadCarToServer(car: newCar)
-                        print(newCar)
                     }
                 }
             }
@@ -65,52 +63,31 @@ class NetworkManager {
         Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON{
             response in
             if response.result.isSuccess{
-                print("Success! Got the car data")
-                print(response)
+//                print(response)
                 var myCars : [Car] = []
                 let carJSON : JSON = JSON(response.result.value!)
-                var number = 0
                 if let carList = carJSON["records"].array {
                     for car in carList {
                         let id = car["fields"]["id"].int ?? 0
-                        print("id == \(id)")
                         let name = car["fields"]["name"].string ?? "Unknown"
-                        print("name == \(name)")
                         let brand = car["fields"]["brand"].string ?? "Unknown"
-                        print("brand == \(brand)")
                         let price = Int(car["fields"]["price"].string ?? "0")!
-                        print("price == \(String(describing: price))")
                         let longitude = Double(car["fields"]["longitude"].string ?? "0.0")!
-                        print("address1 == \(String(describing: longitude))")
                         let latitude = Double(car["fields"]["latitude"].string ?? "0.0")!
-                        print("address == \(String(describing: latitude))")
                         let street = car["fields"]["street"].string ?? "Unknown"
                         
                         let city = car["fields"]["city"].string ?? "Unknown"
                         let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
-                        print("bool == \(String(describing: isAvailable))")
-                        
                         var carImagesString = car["fields"]["carImages"].string ?? ""
                         carImagesString = String(carImagesString.dropFirst())
                         carImagesString = String(carImagesString.dropLast())
                         let carImages = carImagesString.components(separatedBy:",")
-                        print("images == \(String(describing: carImages))")
-                        number += 1
-//                        var tempCarImages:[String] = []
-//                        if let carImages = car["media"]["photo_links"].array {
-//                            for image in carImages {
-//                                tempCarImages.append(image.string!)
-//                            }
-//                        }
                         let newCar = Car(id :id, name: name, brand: brand, price: price, longitude: String(longitude), latitude: String(latitude), street: street, city:city, carImages: carImages)
                         myCars.append(newCar)
-//                        self.uploadCarToServer(car: newCar)
-//                        print(newCar)
-//                        let record =
                         DataManager.shared.allCars = myCars
+                        
                     }
-                    print("here we go")
-                    print(number)
+                    NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
                 }
             }
             else{
@@ -161,11 +138,9 @@ class NetworkManager {
             response in
             switch response.result {
             case .success:
-                print(response)
-                
+//                print(response)
                 break
             case .failure(let error):
-                
                 print(error)
             }
             

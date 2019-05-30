@@ -29,6 +29,20 @@ class ConstantDefinition {
         }
     }
     
+    enum NotificationMessage {
+        case ShowCarDetail
+        case FinishedRetrieveCarData
+        
+        var stringValue : String {
+            switch self {
+            case .ShowCarDetail:
+                return "SHOW_CAR_DETAIL_NOTIFICATION"
+            case .FinishedRetrieveCarData:
+                return "FINISH_RETRIEVE_CAR_NOTIFICATION"
+            }
+        }
+    }
+    
 }
 
 
