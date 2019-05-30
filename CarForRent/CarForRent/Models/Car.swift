@@ -38,7 +38,7 @@ class Car : Codable {
     }
     
     func initFromJson(){
-    
+        
     }
     
     static func GetDefaultCar() -> Car {

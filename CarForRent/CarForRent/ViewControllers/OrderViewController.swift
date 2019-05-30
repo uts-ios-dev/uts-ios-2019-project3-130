@@ -26,9 +26,13 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     var user : User?
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataManager.shared.createUsersData()
         // Do any additional setup after loading the view.
-        populateData()
+       
+        user = User.getRandomUser()
+         populateData()
         NotificationCenter.default.addObserver(self, selector: #selector(goToCarDetail(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
         
     }
     
@@ -45,29 +49,31 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         }
     }
     
+    @objc func finishRetrieveCars(_ notification:Notification) {
+        // Do something now
+        populateData()
+    }
+    
     func populateData() {
-        
+        user = User.getRandomUser()
         scrollView.myDelegate = self
         scrollView.reload()
+        let rentingCar = DataManager.shared.GetCarById(id: (user?.rentingCars)!)
+        displayImage(imageLink: rentingCar.carImages[0])
+        
+        brand.text = rentingCar.brand
+        carName.text = rentingCar.name
+        price.text = "$\(rentingCar.price)"
+        location.text = "unknow"
+        
     }
     
     func numberOfScrollViewElements() -> Int {
-        //print("numberOfScrollViewElements == \(User.getRandomUser().pastRentedCars.count)")
-        return User.getRandomUser().pastRentedCars.count
+        return user!.pastRentedCars.count
     }
     
     func elementAtScrollViewIndex(index: Int) -> Car? {
-        let user = User.getRandomUser()
-        let cars = DataManager.shared.getCars()
-        var car: Car?
-        for i in 0...(cars.count-1) {
-            for j in 0..<user.pastRentedCars.count {
-                if (cars[i].id == user.pastRentedCars[j]) {
-                    car = cars[i]
-                }
-            }
-        }
-        return car
+        return DataManager.shared.GetCarById(id: user!.pastRentedCars[0])
     }
     
 
@@ -80,5 +86,44 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func displayImage(imageLink : String){
+        let catPictureURL = URL(string: imageLink)!
+        
+        // Creating a session object with the default configuration.
+        // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
+        let session = URLSession(configuration: .default)
+        
+        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
+        let downloadPicTask = session.dataTask(with: catPictureURL) { (data, response, error) in
+            // The download has finished.
+            if let e = error {
+                print("Error downloading cat picture: \(e)")
+            } else {
+                // No errors found.
+                // It would be weird if we didn't have a response, so check for that too.
+                if let res = response as? HTTPURLResponse {
+                    print("Downloaded cat picture with response code \(res.statusCode)")
+                    if let imageData = data {
+                        // Finally convert that Data into an image and do what you wish with it.
+                        
+                        DispatchQueue.global().async {
+                            let image = UIImage(data: imageData)
+                            // Do something with your image.
+                            self.rentingCar.image = image
+                        }
+                        
+                    } else {
+                        print("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    print("Couldn't get response code for some reason")
+                }
+            }
+            
+        }
+        
+        downloadPicTask.resume()
+    }
 
 }
