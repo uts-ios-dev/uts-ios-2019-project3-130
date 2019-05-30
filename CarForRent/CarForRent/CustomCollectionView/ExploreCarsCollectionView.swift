@@ -52,7 +52,6 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
         if let cars = cars {
             return cars.count
         }
-        print("1111")
         return 0
     }
     

@@ -39,7 +39,6 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print(imageScrollView.frame)
         imageScrollView.myDelegate = self
         imageScrollView?.reload()
     }

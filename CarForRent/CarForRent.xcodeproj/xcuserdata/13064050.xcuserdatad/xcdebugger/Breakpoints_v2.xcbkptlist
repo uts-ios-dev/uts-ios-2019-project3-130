@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarForRent/Helpers/HorizontalScrollBar.swift"
-            timestampString = "580376325.002809"
+            timestampString = "580880790.06274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
-            endingLineNumber = "56">
+            endingLineNumber = "56"
+            landmarkName = "reload()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -21,7 +21,7 @@ class NetworkManager {
             response in
             if response.result.isSuccess{
                 print("Success! Got the weather data")
-                print(response)
+//                print(response)
                 let carJSON : JSON = JSON(response.result.value!)
                 if let carList = carJSON["listings"].array {
                     for car in carList {
@@ -65,32 +65,24 @@ class NetworkManager {
         Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON{
             response in
             if response.result.isSuccess{
-                print("Success! Got the car data")
-                print(response)
+//                print(response)
                 var myCars : [Car] = []
                 let carJSON : JSON = JSON(response.result.value!)
                 if let carList = carJSON["records"].array {
                     for car in carList {
                         let name = car["fields"]["name"].string ?? "Unknown"
-                        print("name == \(name)")
                         let brand = car["fields"]["brand"].string ?? "Unknown"
-                        print("brand == \(brand)")
                         let price = Int(car["fields"]["price"].string ?? "0")!
-                        print("price == \(String(describing: price))")
                         let longitude = Double(car["fields"]["longitude"].string ?? "0.0")!
-                        print("address1 == \(String(describing: longitude))")
                         let latitude = Double(car["fields"]["latitude"].string ?? "0.0")!
-                        print("address == \(String(describing: latitude))")
                         let street = car["fields"]["street"].string ?? "Unknown"
                         
                         let city = car["fields"]["city"].string ?? "Unknown"
                         let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
-                        print("bool == \(String(describing: isAvailable))")
                         
                         let carImagesString = car["fields"]["carImages"].string ?? ""
-                        carImagesString.replacingCharacters()
+//                        carImagesString.replacingCharacters()
                         let carImages = car["fields"]["carImages"].string?.components(separatedBy:",")
-                        print("images == \(String(describing: carImages))")
                         
 //                        var tempCarImages:[String] = []
 //                        if let carImages = car["media"]["photo_links"].array {
@@ -125,7 +117,7 @@ class NetworkManager {
             response in
             switch response.result {
             case .success:
-                print(response)
+//                print(response)
                 
                 break
             case .failure(let error):

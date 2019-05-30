@@ -22,8 +22,20 @@ class DataManager {
     
     func createCarsData() {
         for i in 1...100 {
-            let car = Car(id: i,name: "MyCar", brand: "Mecedes", price: 90000, longitude:"", latitude : "", street:"", city:"", carImages: ["frontPic","sidePic","backpic","insidePic"])
-            allCars.append(car)
+            var car: Car?
+            let j = Int.random(in: 1...3)
+            switch j {
+            case 1:
+                car = Car(id: i,name: "MyCar", brand: "Mecedes", price: 90000, longitude:"", latitude : "", street:"", city:"", carImages: ["MazdaCX-5","Mada-CX5-side","Mazda-CX5-back","Mazda-CX5-inside"])
+            case 2:
+                car = Car(id: i,name: "MyCar", brand: "Mecedes", price: 90000, longitude:"", latitude : "", street:"", city:"", carImages: ["InfinitiQ50","Infiniti-q50-side","Infiniti-Q50-back","Infiniti-Q50-Inside"])
+            case 3:
+                car = Car(id: i,name: "MyCar", brand: "Mecedes", price: 90000, longitude:"", latitude : "", street:"", city:"", carImages: ["large","Suzuki-Swift-side","Suzuki-Swift-back","Suzuki-Swift-inside"])
+            default:
+                return
+            }
+            //let car = Car(id: i,name: "MyCar", brand: "Mecedes", price: 90000, longitude:"", latitude : "", street:"", city:"", carImages: ["MazdaCX-5","Mada-CX5-side","Mazda-CX5-back","Mazda-CX5-inside"])
+            allCars.append(car!)
         }
     }
     
@@ -53,11 +65,9 @@ class DataManager {
     }
     
     func  getCars() -> [Car]{
-        CreateFakeData()
         return allCars
     }
     func getUsers() -> [User] {
-        CreateFakeData()
         return users
     }
 }

@@ -37,11 +37,11 @@ class HorizontalScroll: UIScrollView {
     }
     
     func reload() {
-        print("reload reload")
         if let del = myDelegate {
             //print("reload reload")
             var xOffset: CGFloat = 0
             for index in 0..<del.numberOfScrollViewElements() {
+               
                 if let carData = del.elementAtScrollViewIndex(index: index) {
                     let myImageView = UIImageView(image: UIImage.init(named: (carData.carImages[0])))
                     myImageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
@@ -50,7 +50,7 @@ class HorizontalScroll: UIScrollView {
                     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
                     myImageView.isUserInteractionEnabled = true
                     myImageView.addGestureRecognizer(tapGestureRecognizer)
-                    
+                    myImageView.tag = index
                     xOffset = xOffset + CGFloat(PADDING) + myImageView.frame.size.width
                     self.addSubview(myImageView)
                 }
@@ -59,18 +59,14 @@ class HorizontalScroll: UIScrollView {
         }
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
-//        detailsViewController.car =
-        if let parentViewController = tappedImage.parentViewController {
-            parentViewController.show(detailsViewController, sender: nil)
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let v = tapGestureRecognizer.view!
+        let tag = v.tag
+        if let del = myDelegate {
+            if let carData = del.elementAtScrollViewIndex(index: tag) {
+                let nodeDict:[String: Any] = ["car": carData]
+                NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil, userInfo: nodeDict)
+            }
         }
-        // Your action
-        
-        
     }
 }

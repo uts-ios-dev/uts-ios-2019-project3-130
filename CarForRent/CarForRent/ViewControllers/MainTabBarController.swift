@@ -12,6 +12,7 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataManager.shared.CreateFakeData()
         NetworkManager.shared.retrieveCars(type : "Toyota")
 //        NetworkManager.shared.retrieveUsers
 //        NetworkManager.shared.getCars(type: "Toyota")

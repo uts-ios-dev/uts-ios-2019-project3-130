@@ -38,17 +38,31 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         //price.text = "\(String(describing: user?.rentingCars[0].price))"
         //location.text = user?.rentingCars[0].location
         //date.text = "12/05/2019"
-        //print(scrollView.frame)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToCarDetail(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil)
         
     }
     
+    @objc func goToCarDetail(_ notification:Notification) {
+        // Do something now
+        if let dict = notification.userInfo as NSDictionary? {
+            if let car = dict["car"] as? Car {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let detailsViewController = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
+                detailsViewController.car = car
+                show(detailsViewController, sender: nil)
+                
+            }
+        }
+    }
+    
     func populateData() {
-        print("populateData populateData")
+        
         scrollView.myDelegate = self
         scrollView.reload()
     }
     
     func numberOfScrollViewElements() -> Int {
+        //print("numberOfScrollViewElements == \(User.getRandomUser().pastRentedCars.count)")
         return User.getRandomUser().pastRentedCars.count
     }
     
@@ -57,15 +71,13 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         let cars = DataManager.shared.getCars()
         var car: Car?
         for i in 0...(cars.count-1) {
-            if (cars[i].id == user.pastRentedCars[index]) {
-                car = cars[i]
+            for j in 0..<user.pastRentedCars.count {
+                if (cars[i].id == user.pastRentedCars[j]) {
+                    car = cars[i]
+                }
             }
         }
         return car
-   //     return User.getRandomUser().pastRentedCars[index]
-  //      return Car.GetDefaultCar()
-  //        return user?.pastRentedCars[index]
-        
     }
     
 
