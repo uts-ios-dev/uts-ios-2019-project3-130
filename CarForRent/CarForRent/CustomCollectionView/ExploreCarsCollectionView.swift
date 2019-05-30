@@ -20,26 +20,14 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
         register(ExploreCarsCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         delegate = self
         dataSource = self
-        populate()
+        reload()
+        NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
     }
     
-    
-    
-    func populate(){
-        user = User.getDefaultUser()
-//        cars = user?.rentingCars
-        
+    func reload(){
+        cars = DataManager.shared.allCars
+        reloadData()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: UICollectionViewDataSource
     
@@ -84,40 +72,14 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
             
         }
     }
-//    var carData : Car?
-    
-//    func populate(){
-//        if let myCar = carData {
-//            if(myCar.carImages.count > 0) {
-//                print("carImageView == \(myCar.carImages[0])")
-//                let myImageView = UIImageView(image: UIImage(named: myCar.carImages[0]))
-//                myImageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height:self.bounds.height)
-//                self.addSubview(myImageView)
-//                branchLabel.text = myCar.brand
-//            }
-//        }
-//
-//    }
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
     
     // MARK: Cell Flow Layou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.bounds.width/2.5, height: self.bounds.height/2)
+    }
+    
+    @objc func finishRetrieveCars(_ notification:Notification){
+        reload()
     }
 }
 

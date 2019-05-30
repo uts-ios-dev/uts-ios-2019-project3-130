@@ -66,7 +66,6 @@ class NetworkManager {
 //                print(response)
                 var myCars : [Car] = []
                 let carJSON : JSON = JSON(response.result.value!)
-                var number = 0
                 if let carList = carJSON["records"].array {
                     for car in carList {
                         let id = car["fields"]["id"].int ?? 0
@@ -79,28 +78,16 @@ class NetworkManager {
                         
                         let city = car["fields"]["city"].string ?? "Unknown"
                         let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
-<<<<<<< HEAD
-=======
-                        print("bool == \(String(describing: isAvailable))")
->>>>>>> bfb59c948fa9fa427c0d5dd0b103c3ff417c9145
                         var carImagesString = car["fields"]["carImages"].string ?? ""
                         carImagesString = String(carImagesString.dropFirst())
                         carImagesString = String(carImagesString.dropLast())
                         let carImages = carImagesString.components(separatedBy:",")
-                        number += 1
-//                        var tempCarImages:[String] = []
-//                        if let carImages = car["media"]["photo_links"].array {
-//                            for image in carImages {
-//                                tempCarImages.append(image.string!)
-//                            }
-//                        }
                         let newCar = Car(id :id, name: name, brand: brand, price: price, longitude: String(longitude), latitude: String(latitude), street: street, city:city, carImages: carImages)
                         myCars.append(newCar)
-//                        self.uploadCarToServer(car: newCar)
-//                        print(newCar)
-//                        let record =
                         DataManager.shared.allCars = myCars
+                        
                     }
+                    NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
                 }
             }
             else{

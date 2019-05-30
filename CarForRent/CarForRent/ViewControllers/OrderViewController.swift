@@ -27,17 +27,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //user = User.getDefaultUser()
         populateData()
-        //let rentingCarImage: String = (user?.rentingCars[0].carImages[0])!
-        //rentingCar.image = UIImage(named: rentingCarImage)
-        //brand.text = user?.rentingCars[0].brand
-        //carName.text = user?.rentingCars[0].name
-        //if let carPrice = user?.rentingCars[0].price {
-        //    price.text = "\(carPrice)"        }
-        //price.text = "\(String(describing: user?.rentingCars[0].price))"
-        //location.text = user?.rentingCars[0].location
-        //date.text = "12/05/2019"
         NotificationCenter.default.addObserver(self, selector: #selector(goToCarDetail(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil)
         
     }

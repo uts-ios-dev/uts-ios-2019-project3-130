@@ -49,6 +49,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func numberOfScrollViewElements() -> Int {
+        print("car?.carImages.count == \(car?.carImages.count)")
         return (car?.carImages.count)!
     }
     

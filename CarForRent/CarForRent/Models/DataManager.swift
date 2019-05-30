@@ -16,7 +16,7 @@ class DataManager {
     static let shared = DataManager()
     
     func CreateFakeData(){
-        createCarsData()
+//        createCarsData()
         createUsersData()
     }
     
@@ -56,7 +56,6 @@ class DataManager {
                 let carId = Int.random(in: 1 ... 100)
                 carsForRent.append(carId)
             }
-            //let randomCar = allCars.randomElement()
             
             let user = User(id: i, name: "Steven", email: "Steven@gmail.com", password: "", phone: "", address: "", rentingCars: rentingCar, pastRentedCars: pastedRentedCars, carsForRent: carsForRent)
             
