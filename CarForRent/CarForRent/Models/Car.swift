@@ -31,8 +31,8 @@ class Car : Codable {
         self.price = price
         self.longitude = longitude
         self.latitude = latitude
-        self.street = longitude
-        self.city = latitude
+        self.street = street
+        self.city = city
         self.isAvailable = true
         self.carImages = carImages
     }

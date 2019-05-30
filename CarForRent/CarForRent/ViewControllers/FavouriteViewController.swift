@@ -10,9 +10,6 @@ import UIKit
 
 class FavouriteViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     var carPictures = CarDetailCell()
-    let car1 = Car.GetDefaultCar()
-    let car2 = Car.GetDefaultCar()
-    let car3 = Car.GetDefaultCar()
     
     var tableData : [Car] = []
     var filteredTableData = [Car]()
@@ -20,10 +17,11 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableData = [car1,car2,car3]
         myLoadView()
         tableView.estimatedRowHeight = 2250
         tableView.rowHeight = UITableView.automaticDimension
+        NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
+        tableData = DataManager.shared.allCars
     }
     
     func myLoadView() {
@@ -38,15 +36,6 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
         searchController.delegate = self
         searchController.dimsBackgroundDuringPresentation = false // The default is true.
         searchController.searchBar.delegate = self // Monitor when the search button is tapped.
-        
-        /** Search presents a view controller by applying normal view controller presentation semantics.
-         This means that the presentation moves up the view controller hierarchy until it finds the root
-         view controller or one that defines a presentation context.
-         */
-        
-        /** Specify that this view controller determines how the search controller is presented.
-         The search controller should be presented modally and match the physical size of this view controller.
-         */
         definesPresentationContext = true
     }
     
@@ -98,6 +87,13 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
+    }
+    
+    // MARK: Notif handler
+    @objc func finishRetrieveCars(_ notification:Notification){
+        print("finishRetrieveCars finishRetrieveCars finishRetrieveCars")
+        tableData = DataManager.shared.getCars()
+        tableView.reloadData()
     }
 
 }

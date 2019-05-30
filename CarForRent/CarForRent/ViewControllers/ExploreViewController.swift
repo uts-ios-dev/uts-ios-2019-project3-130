@@ -20,33 +20,15 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         hideKeyboardWhenTappedAround()
-        
-//        let resultsTableController = storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
-//        resultsTableController.myLoadView()
-//        
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
     }
-    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        if let resultView = searchResultView  {
-//            resultView.isHidden = false
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let resultsTableController = storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
-//            resultsTableController.myLoadView()
-//            //        searchBar = resultsTableController.searchController.searchBar
-//            searchResultView = resultsTableController.view
-//            view.addSubview(searchResultView!)
-//        }
-//    }
     
     @objc override func hideKeyboardWhenTappedAround() {
         super.hideKeyboardWhenTappedAround()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        print("updateSearchResults updateSearchResults")
         sydneyCollectionView.cars?.removeAll(keepingCapacity: false)
         let array = sydneyCollectionView.cars!.filter {
             $0.brand.contains(searchController.searchBar.text!)
