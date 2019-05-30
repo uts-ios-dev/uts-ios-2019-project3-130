@@ -13,7 +13,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     var location:Location?
     
     @IBOutlet weak var imageScrollView: HorizontalScroll!
-
+    
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var CarDetailDescription: UILabel!
     @IBOutlet weak var mapVie: MKMapView!
@@ -22,13 +22,10 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let latitude = car?.latitude, let longitude = car?.longitude {
+            convertLatLongToAddress(latitude: Double(latitude)!, longitude: Double(longitude)!)
+        }
         
-        // creat location instance,
-        let location1 = Location(locationName: "Swift", coordinate: CLLocationCoordinate2DMake(-33.882142,  151.195291) )
-        let location2 = Location(locationName: "CX-5 SUV", coordinate: CLLocationCoordinate2DMake(-33.894878, 150.914204) )
-         let location3 = Location(locationName: "Q50 Sedan", coordinate: CLLocationCoordinate2DMake(-33.905200, 151.163675) )
-        locationArray = [location1,location2,location3]
         scroll.frame = view.frame
         scroll.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
         CarDetailDescription.sizeToFit()
@@ -44,8 +41,8 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func populateData(){
-//        imageScrollView.contentSize
-//        imageScrollView?.reload()
+        //        imageScrollView.contentSize
+        //        imageScrollView?.reload()
     }
     
     func numberOfScrollViewElements() -> Int {
@@ -58,7 +55,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     func elementAtCarDetailsScrollViewIndex(car:Car?) {
         if let car = car {
-            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: Unknown \n Price: \(car.price)"
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.city) \n Price: \(car.price)"
         } else {
             CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
         }
@@ -77,34 +74,46 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     // add the annotation to the map
     func addPin(car:Car){
-        let pin = returnTheLocation(carName: car.name)  // get the name of the car and retrieve in location array based on the matched name
+        let pin = Location(locationName: car.street ?? "unknow", coordinate:CLLocationCoordinate2DMake(Double(car.latitude) ?? 0, Double(car.longitude) ?? 0))
+        let coordinate = CLLocationCoordinate2DMake(Double(car.latitude) ?? 0, Double(car.longitude) ?? 0)
+        
+        centerMapOnLocation(location: coordinate)
         mapVie.addAnnotation(pin)
         centerMapOnLocation(location:pin.coordinate)
     }
     @IBAction func Goback(_ sender: UIButton) {
-
-            dismiss(animated: true, completion: nil)
-      
-    }
-
         
-    
-// retrieve the car name in location, once matched, then return the coodinate of the location
-    func returnTheLocation(carName:String)-> Location{
-        // CHECK PARSING DOUBLE LATER
-        var annotation = Location(locationName: "Unknown", coordinate:CLLocationCoordinate2DMake(Double(car!.latitude) ?? 0, Double(car!.longitude) ?? 0))
+        dismiss(animated: true, completion: nil)
         
-        return annotation
     }
-   
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func convertLatLongToAddress(latitude:Double,longitude:Double){
+        var address = ""
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+
+            // Street address
+            if let street = placeMark.thoroughfare {
+                address.append(street)
+            }
+            // City
+            if let city = placeMark.subAdministrativeArea {
+                 address.append(city)
+            }
+            DispatchQueue.main.async {
+                if let car = self.car {
+                    self.CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(address) \n Price: \(car.price)"
+                }
+            }
+        })
+        
     }
-    */
 
 }
+
