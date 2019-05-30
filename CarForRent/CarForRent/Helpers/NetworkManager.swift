@@ -84,25 +84,26 @@ class NetworkManager {
                         let street = car["fields"]["street"].string ?? "Unknown"
                         
                         let city = car["fields"]["city"].string ?? "Unknown"
-                        let isAvailable = Bool(car["fields"]["isAvailable"].stringValue)
+                        let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
                         print("bool == \(String(describing: isAvailable))")
+                        
+                        let carImagesString = car["fields"]["carImages"].string ?? ""
+                        carImagesString.replacingCharacters()
                         let carImages = car["fields"]["carImages"].string?.components(separatedBy:",")
                         print("images == \(String(describing: carImages))")
-
-                        
                         
 //                        var tempCarImages:[String] = []
 //                        if let carImages = car["media"]["photo_links"].array {
 //                            for image in carImages {
 //                                tempCarImages.append(image.string!)
 //                            }
-                        }
+//                        }
 //                        let newCar = Car(id: 1, name: name, brand: brand, price: price, longitude: longitude, latitude: latitude, street: street, city:city, carImages: tempCarImages)
 //                        self.uploadCarToServer(car: newCar)
 //                        print(newCar)
 //                        let record =
-//                    }
-//                }
+                    }
+                }
             }
             else{
                 print("Error: \(String(describing: response.result.error))")
@@ -136,13 +137,12 @@ class NetworkManager {
     }
 }
 
-extension String: ParameterEncoding {
 
-    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-        var request = try urlRequest.asURLRequest()
-        request.httpBody = Data(using: .utf8, allowLossyConversion: false)
-        return request
-    }
-}
-}
-
+//extension String: ParameterEncoding {
+//
+//    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+//        var request = try urlRequest.asURLRequest()
+//        request.httpBody = Data(using: .utf8, allowLossyConversion: false)
+//        return request
+//    }
+//}
