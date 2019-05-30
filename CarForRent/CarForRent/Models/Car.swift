@@ -55,7 +55,6 @@ class Car : Codable {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(self)
             let json = String(data: jsonData, encoding: String.Encoding.utf8)
-            print(json!)
             return json!
         }
         catch {
