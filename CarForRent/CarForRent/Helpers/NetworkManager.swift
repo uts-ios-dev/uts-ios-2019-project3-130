@@ -88,7 +88,7 @@ class NetworkManager {
                         print("bool == \(String(describing: isAvailable))")
                         
                         let carImagesString = car["fields"]["carImages"].string ?? ""
-                        carImagesString.replacingCharacters()
+                        //carImagesString.replacingCharacters()
                         let carImages = car["fields"]["carImages"].string?.components(separatedBy:",")
                         print("images == \(String(describing: carImages))")
                         
