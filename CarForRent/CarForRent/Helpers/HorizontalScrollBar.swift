@@ -57,6 +57,20 @@ class HorizontalScroll: UIScrollView {
             contentSize = CGSize(width: xOffset, height: self.frame.height)
         }
     }
+   
+    func reload(car: Car) {
+        var xOffset: CGFloat = 0
+        for eachImage in car.carImages {
+            let myImageView = UIImageView(image: UIImage.init(named: (eachImage)))
+            myImageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
+            myImageView.contentMode = .scaleAspectFit
+            xOffset = xOffset + CGFloat(PADDING) + myImageView.frame.size.width
+            self.addSubview(myImageView)
+            displayImage(imageLink: eachImage, imageView : myImageView)
+        }
+        contentSize = CGSize(width: xOffset, height: self.frame.height)
+    }
+    
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let v = tapGestureRecognizer.view!

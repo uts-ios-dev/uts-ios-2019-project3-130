@@ -40,7 +40,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         imageScrollView.myDelegate = self
-        imageScrollView?.reload()
+        imageScrollView?.reload(car: car!)
     }
     
     func populateData(){
@@ -48,8 +48,10 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
 //        imageScrollView?.reload()
     }
     
+   
+    
     func numberOfScrollViewElements() -> Int {
-        print("car?.carImages.count == \(car?.carImages.count)")
+        //print("car?.carImages.count == \(car?.carImages.count)")
         return (car?.carImages.count)!
     }
     

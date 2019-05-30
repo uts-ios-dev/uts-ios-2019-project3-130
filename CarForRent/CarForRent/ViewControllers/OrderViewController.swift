@@ -31,6 +31,10 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
        
         user = User.getRandomUser()
          populateData()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        rentingCar.isUserInteractionEnabled = true
+        rentingCar.addGestureRecognizer(tapGestureRecognizer)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(goToCarDetail(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
         
@@ -54,6 +58,11 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         populateData()
     }
     
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let nodeDict:[String: Any] = ["car": DataManager.shared.GetCarById(id: (user?.rentingCars)!)]
+        NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil, userInfo: nodeDict)
+    }
+    
     func populateData() {
         user = User.getRandomUser()
         scrollView.myDelegate = self
@@ -73,7 +82,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     }
     
     func elementAtScrollViewIndex(index: Int) -> Car? {
-        return DataManager.shared.GetCarById(id: user!.pastRentedCars[0])
+        return DataManager.shared.GetCarById(id: user!.pastRentedCars[index])
     }
     
 
