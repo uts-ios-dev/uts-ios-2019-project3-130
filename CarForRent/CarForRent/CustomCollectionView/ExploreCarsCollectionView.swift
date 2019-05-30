@@ -23,6 +23,8 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
         populate()
     }
     
+    
+    
     func populate(){
         user = User.getDefaultUser()
 //        cars = user?.rentingCars
