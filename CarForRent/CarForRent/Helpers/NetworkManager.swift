@@ -79,6 +79,10 @@ class NetworkManager {
                         
                         let city = car["fields"]["city"].string ?? "Unknown"
                         let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
+<<<<<<< HEAD
+=======
+                        print("bool == \(String(describing: isAvailable))")
+>>>>>>> bfb59c948fa9fa427c0d5dd0b103c3ff417c9145
                         var carImagesString = car["fields"]["carImages"].string ?? ""
                         carImagesString = String(carImagesString.dropFirst())
                         carImagesString = String(carImagesString.dropLast())
@@ -104,7 +108,6 @@ class NetworkManager {
             }
         }
     }
-    
     
 
     func uploadUserToServer(user : User){
