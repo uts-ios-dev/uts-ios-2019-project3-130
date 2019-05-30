@@ -22,6 +22,7 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         hideKeyboardWhenTappedAround()
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
+        brandCollectionView.isBrandCollection = true
     }
     
     @objc override func hideKeyboardWhenTappedAround() {

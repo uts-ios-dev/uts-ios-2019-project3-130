@@ -172,7 +172,6 @@
 				4433AE61229CEE170005696D /* Location.swift */,
 				44ED678E22938F15002AF03A /* Car.swift */,
 				E074FA6222966DCE008D68AF /* User.swift */,
-				44DF605A229E4265009696ED /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,11 +262,12 @@
 		E0F70708229379D00031F718 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				44DF605A229E4265009696ED /* DataManager.swift */,
+				E04E552C229D781B00A5E011 /* NetworkManager.swift */,
 				E0F70709229379EF0031F718 /* UIViewController+Extension.swift */,
 				DE9927432293B086007E187A /* HorizontalScrollBar.swift */,
 				42AFFE19229CE51F00591CD9 /* UIImage+Extension.swift */,
 				E0C9AFDC229CF6B400DED73C /* UIView+Extension.swift */,
-				E04E552C229D781B00A5E011 /* NetworkManager.swift */,
 				E04E556A229D8FF200A5E011 /* ConstantDefinition.swift */,
 			);
 			path = Helpers;

@@ -12,7 +12,7 @@ import UIKit
 class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var user : User?
     var cars : [Car]?
-    
+    var isBrandCollection = false
     let reuseIdentifier = "ExploreCarsCollectionCell"
     
     override func awakeFromNib() {
@@ -26,7 +26,23 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
     
     func reload(){
         cars = DataManager.shared.allCars
+        if(isBrandCollection) {
+            filterCarBrand()
+            
+        }
         reloadData()
+    }
+    
+    func filterCarBrand(){
+        var uniqueValues: [String] = []
+        var uniqueCars : [Car] = []
+        for item in cars! {
+            if !uniqueValues.contains(item.brand){
+                uniqueValues.append(item.brand)
+                uniqueCars.append(item)
+            }
+        }
+        cars = uniqueCars
     }
     
     // MARK: UICollectionViewDataSource
@@ -52,6 +68,7 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
         if let cars = cars {
 //            cell.awakeFromNib()
             cell.carData = cars[indexPath.item]
+            cell.isBrandCollection = self.isBrandCollection
             cell.populate()
             
         }
