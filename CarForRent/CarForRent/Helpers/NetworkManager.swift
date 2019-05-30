@@ -58,9 +58,9 @@ class NetworkManager {
             "Content-Type": "application/json"
         ]
         var params : [String: String] = [:]
-        if(!type.isEmpty) {
-            params = ["filterByFormula" : "AND(brand=\"Toyota\")"]
-        }
+//        if(!type.isEmpty) {
+//            params = ["filterByFormula" : "AND(brand=\"Toyota\")"]
+//        }
         
         Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON{
             response in
@@ -69,8 +69,11 @@ class NetworkManager {
                 print(response)
                 var myCars : [Car] = []
                 let carJSON : JSON = JSON(response.result.value!)
+                var number = 0
                 if let carList = carJSON["records"].array {
                     for car in carList {
+                        let id = car["fields"]["id"].int ?? 0
+                        print("id == \(id)")
                         let name = car["fields"]["name"].string ?? "Unknown"
                         print("name == \(name)")
                         let brand = car["fields"]["brand"].string ?? "Unknown"
@@ -87,22 +90,27 @@ class NetworkManager {
                         let isAvailable = Int(car["fields"]["isAvailable"].int ?? 1) == 1 ? true : false
                         print("bool == \(String(describing: isAvailable))")
                         
-                        let carImagesString = car["fields"]["carImages"].string ?? ""
-                        carImagesString.replacingCharacters()
-                        let carImages = car["fields"]["carImages"].string?.components(separatedBy:",")
+                        var carImagesString = car["fields"]["carImages"].string ?? ""
+                        carImagesString = String(carImagesString.dropFirst())
+                        carImagesString = String(carImagesString.dropLast())
+                        let carImages = carImagesString.components(separatedBy:",")
                         print("images == \(String(describing: carImages))")
-                        
+                        number += 1
 //                        var tempCarImages:[String] = []
 //                        if let carImages = car["media"]["photo_links"].array {
 //                            for image in carImages {
 //                                tempCarImages.append(image.string!)
 //                            }
 //                        }
-//                        let newCar = Car(id: 1, name: name, brand: brand, price: price, longitude: longitude, latitude: latitude, street: street, city:city, carImages: tempCarImages)
+                        let newCar = Car(id :id, name: name, brand: brand, price: price, longitude: String(longitude), latitude: String(latitude), street: street, city:city, carImages: carImages)
+                        myCars.append(newCar)
 //                        self.uploadCarToServer(car: newCar)
 //                        print(newCar)
 //                        let record =
+                        DataManager.shared.allCars = myCars
                     }
+                    print("here we go")
+                    print(number)
                 }
             }
             else{
