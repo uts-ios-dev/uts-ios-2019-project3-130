@@ -119,7 +119,35 @@ class NetworkManager {
         }
     }
     
-    
+    func retrieveUser() {
+        let URL = "\(ConstantDefinition.NetworkKeys.AirTableBaseUrl.stringValue)/users"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": ConstantDefinition.NetworkKeys.AirTableApiKey.stringValue,
+            "Content-Type": "application/json"
+        ]
+        var params : [String: String] = [:]
+        //        if(!type.isEmpty) {
+        //            params = ["filterByFormula" : "AND(brand=\"Toyota\")"]
+        //        }
+        Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON {
+            response in
+            if response.result.isSuccess{
+                print("Success! Got the car data")
+                print(response)
+                var myUsers : [User] = []
+                let usersJSON : JSON = JSON(response.result.value!)
+                if let usersList = usersJSON["records"].array {
+                    for user in usersList {
+//
+                    }
+                }
+            }
+            else{
+                print("Error: \(String(describing: response.result.error))")
+            }
+        }
+    }
 
     func uploadUserToServer(user : User){
         let URL = "\(ConstantDefinition.NetworkKeys.AirTableBaseUrl.stringValue)/cars"
