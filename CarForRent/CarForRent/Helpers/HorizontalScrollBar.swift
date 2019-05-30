@@ -38,12 +38,9 @@ class HorizontalScroll: UIScrollView {
     
     func reload() {
         if let del = myDelegate {
-            print("reload reload 111")
             var xOffset: CGFloat = 0
             for index in 0..<del.numberOfScrollViewElements() {
-                print("reload reload 2222")
                 if let carData = del.elementAtScrollViewIndex(index: index) {
-                    print("reload reload 3333")
                     let myImageView = UIImageView(image: UIImage.init(named: (carData.carImages[0])))
                     myImageView.frame = CGRect(x: xOffset, y: CGFloat(PADDING), width: CGFloat(250), height:CGFloat(250))
                     myImageView.contentMode = .scaleAspectFit

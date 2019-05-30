@@ -58,7 +58,7 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     func elementAtCarDetailsScrollViewIndex(car:Car?) {
         if let car = car {
-            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.street) \n Price: \(car.price)"
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: Unknown \n Price: \(car.price)"
         } else {
             CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
         }
@@ -91,12 +91,9 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     
 // retrieve the car name in location, once matched, then return the coodinate of the location
     func returnTheLocation(carName:String)-> Location{
-        var annotation = Location(locationName: "initialLocation", coordinate:CLLocationCoordinate2DMake(-33.8688,151.2093))
-        for item in locationArray! {
-            if carName == item.locationName{
-                annotation = item
-            }
-        }
+        // CHECK PARSING DOUBLE LATER
+        var annotation = Location(locationName: "Unknown", coordinate:CLLocationCoordinate2DMake(Double(car!.latitude) ?? 0, Double(car!.longitude) ?? 0))
+        
         return annotation
     }
    
