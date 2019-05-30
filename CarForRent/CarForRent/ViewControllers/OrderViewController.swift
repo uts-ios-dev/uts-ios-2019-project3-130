@@ -107,7 +107,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
                     if let imageData = data {
                         // Finally convert that Data into an image and do what you wish with it.
                         
-                        DispatchQueue.global().async {
+                        DispatchQueue.main.async {
                             let image = UIImage(data: imageData)
                             // Do something with your image.
                             self.rentingCar.image = image
