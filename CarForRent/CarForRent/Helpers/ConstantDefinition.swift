@@ -33,7 +33,7 @@ struct ConstantDefinition {
         case ShowCarDetail
         case FinishedRetrieveCarData
         case FinishedRetrieveUserData
-        case ShouldReloadTableData
+        case ShouldReloadOrderData
         
         var stringValue : String {
             switch self {
@@ -43,8 +43,8 @@ struct ConstantDefinition {
                 return "FINISH_RETRIEVE_CAR_NOTIFICATION"
             case .FinishedRetrieveUserData:
                 return "FINISH_RETRIEVE_USERS_NOTIFICATION"
-            case .ShouldReloadTableData:
-                return "SHOULD_RELOAD_TABLE_DATA_NOTIFICATION"
+            case .ShouldReloadOrderData:
+                return "SHOULD_RELOAD_ORDER_DATA_NOTIFICATION"
             }
         }
     }

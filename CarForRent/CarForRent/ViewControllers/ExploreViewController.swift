@@ -23,6 +23,7 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         brandCollectionView.isBrandCollection = true
+        title = "Explore"
     }
     
     @objc override func hideKeyboardWhenTappedAround() {
@@ -36,16 +37,6 @@ class ExploreViewController: UIViewController, UISearchControllerDelegate, UISea
         }
         sydneyCollectionView.cars = array
         sydneyCollectionView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

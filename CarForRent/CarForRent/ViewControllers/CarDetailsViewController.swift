@@ -67,12 +67,10 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
     }
     func elementAtCarDetailsScrollViewIndex(car:Car?) {
         if let car = car {
-            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.city) \n Price: \(car.price)"
+            CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(car.city) \n Price: $\(car.price)"
         } else {
             CarDetailDescription.text = " Name: DefaultName \n Brand: DefaultBrand \n Location: DefaultLocation \n Price: DefaultPrice"
         }
-        
-        
         
     }
     // set initial location and centrelized by the location of the car
@@ -118,16 +116,48 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
             }
             // City
             if let city = placeMark.subAdministrativeArea {
-                 address.append(city)
+                 address.append(" - \(city)")
             }
             DispatchQueue.main.async {
                 if let car = self.car {
-                    self.CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(address) \n Price: \(car.price)"
+                    self.CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(address) \n Price: $\(car.price)"
                 }
             }
         })
         
     }
-
+    
+    @IBAction func BookButtonTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Confirm", message: "You are about to book this car for rent", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                DataManager.shared.currentUser.pastRentedCars.append(DataManager.shared.currentUser.rentingCars)
+                DataManager.shared.currentUser.rentingCars = (self.car?.id)!
+                
+                NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.ShouldReloadOrderData.stringValue), object: nil)
+                break
+            case .cancel:
+                print("cancel")
+                break
+            case .destructive:
+                print("destructive")
+                break
+            }}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                break
+            case .cancel:
+                print("cancel")
+                break
+            case .destructive:
+                print("destructive")
+                break
+            }}))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 

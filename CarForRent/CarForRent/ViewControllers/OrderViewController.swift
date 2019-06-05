@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class OrderViewController: UIViewController, HorizontalScrollDelegate {
     
@@ -16,7 +17,6 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     
     @IBOutlet var rentingCar: UIImageView!
     @IBOutlet weak var brand: UILabel!
-    @IBOutlet weak var carName: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var location: UILabel!
     
@@ -26,17 +26,17 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
     var user : User?
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.shared.createUsersData()
         // Do any additional setup after loading the view.
        
-        user = User.getRandomUser()
-         populateData()
+        user = DataManager.shared.currentUser
+        populateData()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         rentingCar.isUserInteractionEnabled = true
         rentingCar.addGestureRecognizer(tapGestureRecognizer)
         
         NotificationCenter.default.addObserver(self, selector: #selector(goToCarDetail(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.ShouldReloadOrderData.stringValue), object: nil)
         
     }
     
@@ -58,22 +58,27 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         populateData()
     }
     
+    @objc func reloadData(_ notification:Notification) {
+        // Do something now
+        populateData()
+    }
+    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let nodeDict:[String: Any] = ["car": DataManager.shared.GetCarById(id: (user?.rentingCars)!)]
         NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.ShowCarDetail.stringValue), object: nil, userInfo: nodeDict)
     }
     
     func populateData() {
-        user = User.getRandomUser()
+        user = DataManager.shared.currentUser
         scrollView.myDelegate = self
         scrollView.reload()
         let rentingCar = DataManager.shared.GetCarById(id: (user?.rentingCars)!)
         displayImage(imageLink: rentingCar.carImages[0])
         
-        brand.text = rentingCar.brand
-        carName.text = rentingCar.name
-        price.text = "$\(rentingCar.price)"
-        location.text = "unknow"
+        brand.text = "\(rentingCar.brand) - \(rentingCar.name)"
+        price.text = "Price: $\(rentingCar.price)"
+        
+        convertLatLongToAddress(latitude: Double(rentingCar.latitude)!, longitude: Double(rentingCar.longitude)!)
         
     }
     
@@ -134,5 +139,34 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
         
         downloadPicTask.resume()
     }
+    
+    // location
 
+    func convertLatLongToAddress(latitude:Double,longitude:Double){
+        var address = ""
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            // Street address
+            if let street = placeMark.thoroughfare {
+                address.append(street)
+            }
+            // City
+            if let city = placeMark.subAdministrativeArea {
+                address.append(" - \(city)")
+            }
+            DispatchQueue.main.async {
+                
+                self.location.text = "Location: \(address)"
+                
+            }
+        })
+        
+    }
 }

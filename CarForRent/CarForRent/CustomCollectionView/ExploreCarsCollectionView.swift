@@ -86,6 +86,7 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
                 detailsViewController.isBrandFiltered = true
                 if let parentViewController = self.parentViewController {
                     parentViewController.navigationController?.pushViewController(detailsViewController, animated: true)
+                    detailsViewController.title = "\(cars[indexPath.item].brand)"
                     detailsViewController.tableData = DataManager.shared.CarsWithBrand(brand: cars[indexPath.item].brand)
                     detailsViewController.tableView.reloadData()
                 }

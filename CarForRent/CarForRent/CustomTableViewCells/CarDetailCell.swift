@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class CarDetailCell: UITableViewCell {
 
@@ -24,10 +25,14 @@ class CarDetailCell: UITableViewCell {
     func populateData(){
         // Configure the cell...
         if let car = car {
-            carNameLabel.text = "name: \(car.name) Brand: \(car.brand) \n Location: \(car.street) \n Price: \(car.price)"
+            carNameLabel.text = "Name: \(car.name)\nBrand: \(car.brand) \nLocation: \(car.street) \nPrice: \(car.price)"
             if(car.carImages.count >= 0){
                 displayImage(imageLink: car.carImages[0])
             }
+            let latitude = car.latitude
+            let longitude = car.longitude
+            convertLatLongToAddress(latitude: Double(latitude)!, longitude: Double(longitude)!)
+            
         }
         
     }
@@ -82,6 +87,34 @@ class CarDetailCell: UITableViewCell {
         }
         
         downloadPicTask.resume()
+    }
+    
+    func convertLatLongToAddress(latitude:Double,longitude:Double){
+        var address = ""
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placemarks?[0]
+            
+            // Street address
+            if let street = placeMark.thoroughfare {
+                address.append(street)
+            }
+            // City
+            if let city = placeMark.subAdministrativeArea {
+                address.append(" - \(city)")
+            }
+            DispatchQueue.main.async {
+                if let car = self.car {
+                    self.carNameLabel.text = "Name: \(car.name)\nBrand: \(car.brand) \nLocation: \(address) \nPrice: $\(car.price)"
+                }
+            }
+        })
+        
     }
 
 }

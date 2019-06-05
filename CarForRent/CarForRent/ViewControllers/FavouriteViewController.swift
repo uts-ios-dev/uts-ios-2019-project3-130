@@ -23,7 +23,9 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
         tableView.rowHeight = UITableView.automaticDimension
         if(!isBrandFiltered){
             tableData = DataManager.shared.CarArrayFromIdArray(idArray: DataManager.shared.currentUser.favouriteCars)
+            self.title = "Favourite"
         }
+        
     }
     
     func myLoadView() {
@@ -88,7 +90,7 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 260
     }
 
 }
