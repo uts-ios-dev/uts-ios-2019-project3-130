@@ -15,9 +15,11 @@ class DataManager {
     
     static let shared = DataManager()
     
+    var currentUser = User.getDefaultUser()
+    
     func CreateFakeData(){
 //        createCarsData()
-        createUsersData()
+//        createUsersData()
     }
     
     func createCarsData() {
@@ -58,7 +60,7 @@ class DataManager {
                     carsForRent.append(carId)
                 }
                 
-                let user = User(id: i, name: "Steven", email: "Steven@gmail.com", password: "", phone: "", address: "", rentingCars: rentingCar, pastRentedCars: pastedRentedCars, carsForRent: carsForRent)
+                let user = User(id: i, name: "Steven", email: "Steven@gmail.com", password: "", phone: "", address: "", rentingCars: rentingCar, pastRentedCars: pastedRentedCars, carsForRent: carsForRent, favouriteCars: [])
                 
                 users.append(user)
             }
@@ -73,13 +75,39 @@ class DataManager {
         return users
     }
     
-    func GetCarById(id: Int) -> Car{
+    func GetCarById(id: Int) -> Car {
         var car = Car.GetDefaultCar()
-        for i in 0...(allCars.count-1) {
-            if (allCars[i].id == id) {
-                car = allCars[i]
+        for myCar in allCars {
+            if (myCar.id == id) {
+                car = myCar
             }
         }
         return car
+    }
+    
+    func CarArrayFromIdArray(idArray : [Int]) -> [Car] {
+        var carArray : [Car] = []
+        for id in idArray {
+            let car = DataManager.shared.GetCarById(id: id)
+            carArray.append(car)
+        }
+        return carArray
+    }
+    
+    func CarsWithBrand(brand : String) -> [Car] {
+        print("search brand == \(brand)")
+        var carArray : [Car] = []
+        for myCar in allCars {
+            
+            if (myCar.brand.lowercased() == brand.lowercased()) {
+                print("myCar brand == \(myCar.brand) FOUND!!!")
+                carArray.append(myCar)
+            }
+        }
+        return carArray
+    }
+    
+    func UpdateCurrentUser(){
+        currentUser = users.randomElement() ?? User.getRandomUser()
     }
 }

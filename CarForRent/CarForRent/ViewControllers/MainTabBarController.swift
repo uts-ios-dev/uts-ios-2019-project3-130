@@ -14,6 +14,12 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
  //       DataManager.shared.CreateFakeData()
         NetworkManager.shared.retrieveCars(type : "Toyota")
+        NetworkManager.shared.retrieveUser()
+        NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveUsers(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveUserData.stringValue), object: nil)
+    }
+    
+    @objc func finishRetrieveUsers(_ notification:Notification){
+        DataManager.shared.UpdateCurrentUser()
     }
     
 

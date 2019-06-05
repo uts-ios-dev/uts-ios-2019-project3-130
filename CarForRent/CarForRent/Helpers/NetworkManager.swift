@@ -38,7 +38,6 @@ class NetworkManager {
                             }
                         }
                         let newCar = Car(id: 1, name: name, brand: brand, price: price, longitude: longitude, latitude: latitude, street: street, city:city, carImages: tempCarImages)
-//                        self.uploadCarToServer(car: newCar)
                     }
                 }
             }
@@ -84,9 +83,9 @@ class NetworkManager {
                         let carImages = carImagesString.components(separatedBy:",")
                         let newCar = Car(id :id, name: name, brand: brand, price: price, longitude: String(longitude), latitude: String(latitude), street: street, city:city, carImages: carImages)
                         myCars.append(newCar)
-                        DataManager.shared.allCars = myCars
                         
                     }
+                    DataManager.shared.allCars = myCars
                     NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
                 }
             }
@@ -103,24 +102,40 @@ class NetworkManager {
             "Authorization": ConstantDefinition.NetworkKeys.AirTableApiKey.stringValue,
             "Content-Type": "application/json"
         ]
-        var params : [String: String] = [:]
-        //        if(!type.isEmpty) {
-        //            params = ["filterByFormula" : "AND(brand=\"Toyota\")"]
-        //        }
+        let params : [String: String] = [:]
         Alamofire.request(URL, method: .get, parameters: params, headers:headers).responseJSON {
             response in
             if response.result.isSuccess{
-                print("Success! Got the car data")
+                print("Success! Got the USER data")
                 print(response)
                 var myUsers : [User] = []
                 let usersJSON : JSON = JSON(response.result.value!)
                 if let usersList = usersJSON["records"].array {
                     for user in usersList {
-//
+                        let id = user["fields"]["Id"].string ?? "1"
+                        let name = user["fields"]["name"].string ?? ""
+                        let email = user["fields"]["email"].string ?? ""
+                        let pass = user["fields"]["password"].string ?? ""
+                        let favouriteCars = user["fields"]["favouriteCars"].string ?? ""
+                        let address = user["fields"]["address"].string ?? ""
+                        let pastedRentedCars = user["fields"]["pastedRentedCars"].string ?? ""
+                        let phone = user["fields"]["phone"].string ?? ""
+                        let rentingCars = user["fields"]["rentingCars"].string ?? ""
+                        
+                        let favouriteCarsArray = self.getArrayIdFromString(string: favouriteCars)
+                        let pastedRentedCarsArray = self.getArrayIdFromString(string: pastedRentedCars)
+                        let rentingCarsArray = self.getArrayIdFromString(string: rentingCars)
+                        let newUser = User(id: Int(id)!, name: name, email: email, password: pass, phone: phone, address: address, rentingCars: rentingCarsArray[0], pastRentedCars: pastedRentedCarsArray, carsForRent: [], favouriteCars: favouriteCarsArray)
+                        print("data mail = \(user["fields"]["address"].string)")
+                        print("User mail= \(newUser.address)")
+                        myUsers.append(newUser)
                     }
+                    DataManager.shared.users = myUsers
+                    NotificationCenter.default.post(name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveUserData.stringValue), object: nil)
                 }
             }
-            else{
+            else
+            {
                 print("Error: \(String(describing: response.result.error))")
             }
         }
@@ -146,14 +161,11 @@ class NetworkManager {
             
         }
     }
+    
+    func getArrayIdFromString(string: String) -> [Int] {
+        let idArray = string.components(separatedBy: ",").map { Int($0)!}
+        print("getArrayIdFromString = \(idArray)")
+        return idArray
+    }
 }
 
-
-//extension String: ParameterEncoding {
-//
-//    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-//        var request = try urlRequest.asURLRequest()
-//        request.httpBody = Data(using: .utf8, allowLossyConversion: false)
-//        return request
-//    }
-//}

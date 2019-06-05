@@ -40,6 +40,16 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         imageScrollView?.reload(car: car!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     func populateData(){
         //        imageScrollView.contentSize
         //        imageScrollView?.reload()
@@ -84,9 +94,11 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
         centerMapOnLocation(location:pin.coordinate)
     }
     @IBAction func Goback(_ sender: UIButton) {
-        
-        dismiss(animated: true, completion: nil)
-        
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     func convertLatLongToAddress(latitude:Double,longitude:Double){

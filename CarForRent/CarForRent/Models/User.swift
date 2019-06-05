@@ -18,8 +18,9 @@ class User {
     var rentingCars : Int
     var pastRentedCars : [Int]
     var carsForRent : [Int]
+    var favouriteCars : [Int]
     
-    init(id: Int, name: String, email: String, password: String, phone: String, address: String, rentingCars: Int, pastRentedCars: [Int], carsForRent: [Int]) {
+    init(id: Int, name: String, email: String, password: String, phone: String, address: String, rentingCars: Int, pastRentedCars: [Int], carsForRent: [Int], favouriteCars:[Int]) {
         self.id = id
         self.name = name
         self.email = email
@@ -27,6 +28,9 @@ class User {
         self.rentingCars = rentingCars
         self.pastRentedCars = pastRentedCars
         self.carsForRent = carsForRent
+        self.favouriteCars = favouriteCars
+        self.address = address
+        self.phone = phone
     }
     
     static func getRandomUser() -> User {
@@ -36,7 +40,7 @@ class User {
     }
     
     static func getDefaultUser() -> User {
-        let defaultUser = User(id: 0, name: "Steven001", email: "steven@gmail.com", password: "0450111111", phone: "1111111", address: "80/91 George Str", rentingCars: 771, pastRentedCars: [772,773], carsForRent: [774])
+        let defaultUser = User(id: 0, name: "Steven001", email: "steven@gmail.com", password: "0450111111", phone: "1111111", address: "80/91 George Str", rentingCars: 771, pastRentedCars: [772,773], carsForRent: [774], favouriteCars : [773])
        defaultUser.name = "Steven001"
        defaultUser.email = "steven@gmail.com"
        defaultUser.phone = "0450111111"
@@ -44,4 +48,6 @@ class User {
        defaultUser.address = "80/91 George Str"
        return defaultUser
     }
+    
+    
 }

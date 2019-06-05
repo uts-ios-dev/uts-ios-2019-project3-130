@@ -80,19 +80,29 @@ class ExploreCarsCollectionView : UICollectionView, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cars = cars {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
-            detailsViewController.car = cars[indexPath.item]
-            if let parentViewController = self.parentViewController {
-                parentViewController.show(detailsViewController, sender: nil)
+            if(isBrandCollection){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let detailsViewController = storyboard.instantiateViewController(withIdentifier: "FavouriteViewController") as! FavouriteViewController
+                detailsViewController.isBrandFiltered = true
+                if let parentViewController = self.parentViewController {
+                    parentViewController.navigationController?.pushViewController(detailsViewController, animated: true)
+                    detailsViewController.tableData = DataManager.shared.CarsWithBrand(brand: cars[indexPath.item].brand)
+                    detailsViewController.tableView.reloadData()
+                }
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let detailsViewController = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
+                detailsViewController.car = cars[indexPath.item]
+                if let parentViewController = self.parentViewController {
+                    parentViewController.navigationController?.pushViewController(detailsViewController, animated: true)
+                }
             }
-            
         }
     }
     
     // MARK: Cell Flow Layou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.bounds.width/2.5, height: self.bounds.height/2)
+        return CGSize(width: self.bounds.width/3, height: self.bounds.height/2)
     }
     
     @objc func finishRetrieveCars(_ notification:Notification){

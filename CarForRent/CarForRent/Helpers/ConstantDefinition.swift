@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ConstantDefinition {
+struct ConstantDefinition {
     enum NetworkKeys {
         case CarApiKey
         case CarBaseUrl
@@ -32,6 +32,8 @@ class ConstantDefinition {
     enum NotificationMessage {
         case ShowCarDetail
         case FinishedRetrieveCarData
+        case FinishedRetrieveUserData
+        case ShouldReloadTableData
         
         var stringValue : String {
             switch self {
@@ -39,10 +41,18 @@ class ConstantDefinition {
                 return "SHOW_CAR_DETAIL_NOTIFICATION"
             case .FinishedRetrieveCarData:
                 return "FINISH_RETRIEVE_CAR_NOTIFICATION"
+            case .FinishedRetrieveUserData:
+                return "FINISH_RETRIEVE_USERS_NOTIFICATION"
+            case .ShouldReloadTableData:
+                return "SHOULD_RELOAD_TABLE_DATA_NOTIFICATION"
             }
         }
     }
     
+    enum ExploreCollectionViewType {
+        case CarBrand
+        case AllCar
+    }
 }
 
 

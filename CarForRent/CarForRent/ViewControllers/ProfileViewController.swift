@@ -14,7 +14,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userWelcome: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
-    //@IBOutlet weak var payment: UILabel!
     @IBOutlet weak var address: UILabel!
     
     
@@ -23,11 +22,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //userWelcome.text = "Hi! \(user.name)"
-        //email.text = user.email
-        //phone.text = user.phone
-        //address.text = user.address
-        // Do any additional setup after loading the view.
+        let user = DataManager.shared.currentUser
+        userWelcome.text = "Hi! \(user.name)"
+        email.text = "Email: \(user.email)"
+        phone.text = "Phone no.: \(user.phone)"
+        address.text = "Address: \(user.address)"
     }
     
 

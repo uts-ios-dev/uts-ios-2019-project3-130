@@ -14,14 +14,16 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     var tableData : [Car] = []
     var filteredTableData = [Car]()
     var searchController = UISearchController()
+    var isBrandFiltered = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myLoadView()
         tableView.estimatedRowHeight = 2250
         tableView.rowHeight = UITableView.automaticDimension
-        NotificationCenter.default.addObserver(self, selector: #selector(finishRetrieveCars(_:)), name: Notification.Name(ConstantDefinition.NotificationMessage.FinishedRetrieveCarData.stringValue), object: nil)
-        tableData = DataManager.shared.allCars
+        if(!isBrandFiltered){
+            tableData = DataManager.shared.CarArrayFromIdArray(idArray: DataManager.shared.currentUser.favouriteCars)
+        }
     }
     
     func myLoadView() {
@@ -87,13 +89,6 @@ class FavouriteViewController: UITableViewController, UISearchResultsUpdating, U
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
-    }
-    
-    // MARK: Notif handler
-    @objc func finishRetrieveCars(_ notification:Notification){
-        print("finishRetrieveCars finishRetrieveCars finishRetrieveCars")
-        tableData = DataManager.shared.getCars()
-        tableView.reloadData()
     }
 
 }
