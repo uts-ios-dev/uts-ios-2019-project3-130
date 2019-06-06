@@ -108,10 +108,8 @@ class CarDetailCell: UITableViewCell {
             if let city = placeMark.subAdministrativeArea {
                 address.append(" - \(city)")
             }
-            DispatchQueue.main.async {
-                if let car = self.car {
-                    self.carNameLabel.text = "Name: \(car.name)\nBrand: \(car.brand) \nLocation: \(address) \nPrice: $\(car.price)"
-                }
+            if let car = self.car {
+                self.carNameLabel.text = "Name: \(car.name)\nBrand: \(car.brand) \nLocation: \(address) \nPrice: $\(car.price)"
             }
         })
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFz-P7-gqY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -250,11 +250,11 @@
             </objects>
             <point key="canvasLocation" x="-1759" y="759"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="bYs-OO-aSI">
             <objects>
                 <navigationController id="jOO-DY-q0C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3HQ-hn-hx9"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="3HQ-hn-hx9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lpj-JW-mPl">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

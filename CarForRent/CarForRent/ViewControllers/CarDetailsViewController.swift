@@ -118,13 +118,10 @@ class CarDetailsViewController: UIViewController, HorizontalScrollDelegate {
             if let city = placeMark.subAdministrativeArea {
                  address.append(" - \(city)")
             }
-            DispatchQueue.main.async {
-                if let car = self.car {
-                    self.CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(address) \n Price: $\(car.price)"
-                }
+            if let car = self.car {
+                self.CarDetailDescription.text = " Name: \(car.name) \n Brand: \(car.brand) \n Location: \(address) \n Price: $\(car.price)"
             }
         })
-        
     }
     
     @IBAction func BookButtonTapped(_ sender: Any) {

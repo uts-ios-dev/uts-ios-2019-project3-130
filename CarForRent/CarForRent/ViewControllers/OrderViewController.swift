@@ -161,11 +161,7 @@ class OrderViewController: UIViewController, HorizontalScrollDelegate {
             if let city = placeMark.subAdministrativeArea {
                 address.append(" - \(city)")
             }
-            DispatchQueue.main.async {
-                
-                self.location.text = "Location: \(address)"
-                
-            }
+            self.location.text = "Location: \(address)"
         })
         
     }
